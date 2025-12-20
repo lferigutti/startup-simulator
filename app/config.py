@@ -1,0 +1,43 @@
+from pathlib import Path
+from typing import Literal, Annotated, Any
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+
+ENV_FILE_CANDIDATES = (
+  Path(__file__).resolve().parents[2] / ".env",
+  Path(__file__).resolve().parents[1] / ".env",
+)
+
+DEFAULT_ENV_FILE = next((path for path in ENV_FILE_CANDIDATES if path.exists()), ENV_FILE_CANDIDATES[0])
+
+
+class Settings(BaseSettings):
+  model_config = SettingsConfigDict(
+    env_file=DEFAULT_ENV_FILE,
+    env_ignore_empty=True,
+    extra="ignore",
+  )
+
+  # server section
+  UVICORN_TIMEOUT_KEEP_ALIVE: int = 120
+  UVICORN_TIMEOUT_GRACEFUL_SHUTDOWN: int = 120
+  LOG_LEVEL: Literal["critical", "error", "warning", "info", "debug", "trace"] = "info"
+
+
+  # app section
+  TITLE: str = "Startup Simulator API"
+  API_V1_STR: str = "/api/v1"
+  DOCS_URL: str = "/docs"
+  OPENAPI_URL: str = "/openapi.json"
+  SERVER_PORT: int = 8000
+  ENABLE_DOCS: bool = True
+  ENABLE_OPENAPI: bool = True
+  ENABLE_CORS: bool = True
+  CORS_ORIGINS: list = ["*"]
+  FRONTEND_HOST: str = "http://localhost:5173"
+  ENVIRONMENT: Literal["local", "staging", "production"] = "local"
+
+
+
+settings = Settings()
