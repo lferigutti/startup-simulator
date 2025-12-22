@@ -1,0 +1,64 @@
+[
+  {
+    "id": "engineer_craftsman",
+    "role": "engineer",
+    "name": "The Craftsman",
+    "key_traits": ["long_term", "quality_focused", "hands_on", "independent"],
+    "message": "You care deeply about doing things right. You'll push back on shortcuts and build things that last. Watch out for perfectionism slowing you down."
+  },
+  {
+    "id": "engineer_firefighter",
+    "role": "engineer",
+    "name": "The Firefighter",
+    "key_traits": ["short_term", "speed_focused", "hands_on", "risk_taker"],
+    "message": "You thrive in chaos and can ship under pressure. Startups love you early on, but make sure you don't burn out or leave a trail of tech debt."
+  },
+  {
+    "id": "engineer_team_player",
+    "role": "engineer",
+    "name": "The Team Player",
+    "key_traits": [
+      "collaborative",
+      "diplomatic",
+      "quality_focused",
+      "risk_averse"
+    ],
+    "message": "You keep the team aligned and avoid conflict. You're great at consensus-building, but sometimes you need to push harder for what you believe."
+  },
+  {
+    "id": "engineer_architect",
+    "role": "engineer",
+    "name": "The Architect",
+    "key_traits": [
+      "long_term",
+      "data_driven",
+      "independent",
+      "quality_focused"
+    ],
+    "message": "You think in systems and see around corners. You're invaluable for scaling, but may frustrate founders who want speed over structure."
+  },
+  {
+    "id": "engineer_pragmatist",
+    "role": "engineer",
+    "name": "The Pragmatist",
+    "key_traits": [
+      "short_term",
+      "collaborative",
+      "diplomatic",
+      "speed_focused"
+    ],
+    "message": "You balance idealism with reality. You know when to compromise. Just make sure you're not always the one giving ground."
+  },
+  {
+    "id": "engineer_challenger",
+    "role": "engineer",
+    "name": "The Challenger",
+    "key_traits": [
+      "confrontational",
+      "data_driven",
+      "independent",
+      "risk_taker"
+    ],
+    "message": "You speak up and push boundaries. You make teams better through debate, but watch your tone—not everyone sees conflict as productive."
+  }
+]

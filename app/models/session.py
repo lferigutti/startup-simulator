@@ -32,4 +32,17 @@ class Session(BaseModel):
 
 
 
+class Archetype(BaseModel):
+    id: str
+    role: Role
+    name: str
+    key_traits: List[str]
+    message: str
 
+
+class ArchetypeMatch(BaseModel):
+    archetype: Archetype
+    score: int
+    matched_traits: List[str]
+    missing_traits: List[str]
+    coverage: float

@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from uuid import UUID
 
 from app.models.enum import Role
-from app.models.session import Scenario
+from app.models.session import Scenario, ArchetypeMatch
 
 
 class CreateSessionResponse(BaseModel):
@@ -18,3 +18,5 @@ class DecideResponse(BaseModel):
     scenarios_completed: int
     total_scenarios: int
     is_completed: bool = False
+
+

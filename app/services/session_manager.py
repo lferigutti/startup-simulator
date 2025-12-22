@@ -67,7 +67,6 @@ def submit_choice(db: Session, session_id: UUID, scenario_id:str, choice_id: str
     role = Role(session.role)
     traits = get_choice_traits(role, scenario_id, choice_id)
     
-    # Validate choice exists
     if not traits:
         raise ValueError(f"Invalid choice {choice_id} for scenario {scenario_id}")
     
@@ -83,3 +82,19 @@ def submit_choice(db: Session, session_id: UUID, scenario_id:str, choice_id: str
     return scenario_choice
 
 
+def generate_trait_scores(db: Session, session_id: UUID) -> dict:
+    """
+    
+    Raises:
+        ValueError: If session not found
+    """
+    session = get_session_or_raise(db, session_id)
+    
+    # Aggregate traits from all scenario responses
+    trait_counts = {}
+    for response in session.scenario_responses:
+        for trait in response.traits:
+            trait_counts[trait] = trait_counts.get(trait, 0) + 1
+    
+    return trait_counts
+    

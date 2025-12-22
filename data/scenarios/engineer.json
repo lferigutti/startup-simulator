@@ -14,7 +14,7 @@
       {
         "id": "engineer_1_choice_2",
         "text": "Ship the feature but document the technical debt as a blocker for next sprint",
-        "traits": ["short_term", "collaborative", "pragmatic"]
+        "traits": ["short_term", "collaborative", "risk_averse"]
       },
       {
         "id": "engineer_1_choice_3",
@@ -43,7 +43,143 @@
       {
         "id": "engineer_2_choice_3",
         "text": "Propose a minimal version that fits within current architecture",
-        "traits": ["pragmatic", "collaborative", "quality_focused"]
+        "traits": ["long_term", "collaborative", "quality_focused"]
+      }
+    ]
+  },
+  {
+    "id": "engineer_scenario_3",
+    "role": "engineer",
+    "title": "Junior Engineer Struggling",
+    "description": "A junior engineer is blocked on a critical task and deadlines are tight.",
+    "order": 3,
+    "choices": [
+      {
+        "id": "engineer_3_choice_1",
+        "text": "Reassign the task to yourself to ensure it's done on time.",
+        "traits": ["speed_focused", "independent", "short_term", "hands_on"]
+      },
+      {
+        "id": "engineer_3_choice_2",
+        "text": "Pair program with them to help unblock and teach.",
+        "traits": [
+          "collaborative",
+          "long_term",
+          "diplomatic",
+          "quality_focused"
+        ]
+      },
+      {
+        "id": "engineer_3_choice_3",
+        "text": "Give them a quick hint and let them figure it out.",
+        "traits": ["independent", "long_term", "risk_averse"]
+      }
+    ]
+  },
+  {
+    "id": "engineer_scenario_4",
+    "role": "engineer",
+    "title": "Unrealistic Deadline",
+    "description": "The founder promises a client feature in two weeks. You know it needs four. Do you:",
+    "order": 4,
+    "choices": [
+      {
+        "id": "engineer_4_choice_1",
+        "text": "Say nothing and work extra hours to meet the deadline.",
+        "traits": [
+          "speed_focused",
+          "independent",
+          "short_term",
+          "hands_on",
+          "risk_taker"
+        ]
+      },
+      {
+        "id": "engineer_4_choice_2",
+        "text": "Push back immediately, explaining the risks of rushing.",
+        "traits": ["long_term", "confrontational", "risk_averse"]
+      },
+      {
+        "id": "engineer_4_choice_3",
+        "text": "Negotiate a scope reduction to meet the deadline.",
+        "traits": ["collaborative", "diplomatic", "risk_averse"]
+      }
+    ]
+  },
+  {
+    "id": "engineer_scenario_5",
+    "role": "engineer",
+    "title": "Surprise Customer Calls",
+    "description": "The founder messages: 'Can you jump on 3 customer calls today? We need someone technical.' You weren't hired for sales, but the calls are happening soon and the stakes are high.",
+    "order": 5,
+    "choices": [
+      {
+        "id": "engineer_5_choice_1",
+        "text": "Refuse the calls and offer an alternative: write a technical FAQ / escalation guide, and only join if there's a deep technical escalation.",
+        "traits": ["long_term", "risk_averse", "independent", "confrontational"]
+      },
+      {
+        "id": "engineer_5_choice_2",
+        "text": "Accept immediately with no questions and run the calls as requested.",
+        "traits": ["short_term", "speed_focused", "collaborative", "hands_on"]
+      },
+      {
+        "id": "engineer_5_choice_3",
+        "text": "Do it, but make it clear it's temporary and propose a proper rotation + escalation path going forward.",
+        "traits": [
+          "long_term",
+          "diplomatic",
+          "collaborative",
+          "quality_focused"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "engineer_scenario_6",
+    "role": "engineer",
+    "title": "Finished Sprint Work Early",
+    "description": "You finished all your sprint tickets in half the estimated time. There are still several days left in the sprint, and no one has noticed yet.",
+    "order": 6,
+    "choices": [
+      {
+        "id": "engineer_6_choice_1",
+        "text": "Tell the team you're free and ask for more work or offer to help someone who's blocked.",
+        "traits": ["collaborative", "hands_on", "long_term", "quality_focused"]
+      },
+      {
+        "id": "engineer_6_choice_2",
+        "text": "Keep quiet and use the time for personal life or low-key learning.",
+        "traits": ["short_term", "independent", "risk_averse"]
+      },
+      {
+        "id": "engineer_6_choice_3",
+        "text": "Use the time to find something meaningful to improve (tests, CI, monitoring), bring data, and propose it ASAP.",
+        "traits": ["data_driven", "long_term", "quality_focused", "hands_on"]
+      }
+    ]
+  },
+  {
+    "id": "engineer_scenario_7",
+    "role": "engineer",
+    "title": "Hard Feature, Deadline Slipping",
+    "description": "You're stuck on a hard part of a feature and you're pretty sure you won't meet the deadline unless something changes.",
+    "order": 7,
+    "choices": [
+      {
+        "id": "engineer_7_choice_1",
+        "text": "Say nothing for now and try to figure it out solo; only explain the miss after it's clearly impossible.",
+        "traits": ["independent", "hands_on", "risk_taker", "short_term"]
+      },
+      {
+        "id": "engineer_7_choice_2",
+        "text": "Inform the founder ASAP with the reason and present options (reduce scope, move deadline, or get help).",
+        "traits": ["collaborative", "risk_averse", "diplomatic", "data_driven"]
+      },
+      {
+        "id": "engineer_7_choice_3",
+        "text": "Ask a teammate to pair and research known issues (docs, GitHub issues, forums), then report back with what you found.",
+        "traits": ["collaborative", "hands_on", "data_driven", "risk_averse"]
       }
     ]
   }

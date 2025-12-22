@@ -26,7 +26,7 @@ def _load_scenarios_for_role(role: Role) -> List[Scenario]:
             return []
         data = json.loads(content)
     
-    scenarios = []
+    scenarios_with_order = []
     for scenario_data in data:
         choices = [
             Choice(
@@ -45,12 +45,12 @@ def _load_scenarios_for_role(role: Role) -> List[Scenario]:
             description=scenario_data["description"],
             choices=choices
         )
-        scenarios.append(scenario)
+        scenarios_with_order.append((scenario_data.get("order", 0), scenario))
     
-    # Sort by order field if present
-    scenarios.sort(key=lambda s: scenario_data.get("order", 0))
-    
-    return scenarios
+    # Sort by order field if present (stable)
+    scenarios_with_order.sort(key=lambda pair: pair[0])
+
+    return [scenario for _, scenario in scenarios_with_order]
 
 
 def get_scenarios_for_role(role: Role) -> List[Scenario]:

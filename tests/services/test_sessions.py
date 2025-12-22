@@ -7,6 +7,7 @@ from uuid import UUID
 from app.models.enum import Role, WorkflowState
 from app.db.models import SessionModel
 from app.services import session_manager
+from app.services.scenario_engine import get_total_scenarios
 
 
 class TestCreateSessionService:
@@ -20,7 +21,7 @@ class TestCreateSessionService:
         assert response.role == Role.ENGINEER
         assert response.first_scenario is not None
         assert response.first_scenario.id == "engineer_scenario_1"
-        assert response.total_scenarios == 2  # Based on current test data
+        assert response.total_scenarios == get_total_scenarios(Role.ENGINEER)
 
     def test_create_session_stores_in_database(self, db_session):
         """Should persist session in database."""

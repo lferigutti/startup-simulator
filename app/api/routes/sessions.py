@@ -5,7 +5,8 @@ from uuid import UUID
 from app.db.database import get_db
 from app.models.enum import Role
 from app.models.schemas import CreateSessionResponse, DecideResponse
-from app.services import session_manager, scenario_engine
+from app.models.session import ArchetypeMatch
+from app.services import session_manager, scenario_engine, archetype_engine
 
 router = APIRouter(tags=["Sessions"], prefix="/sessions")
 
@@ -57,6 +58,23 @@ def submit_choice_endpoint(
             is_completed=next_scenario is None
         )
 
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
+@router.post("/{sesssion_id}/generate_profile", summary="Generate user profile based on decisions")
+def generate_profile_endpoint(
+    sesssion_id: UUID,
+    db: Session = Depends(get_db)
+)-> ArchetypeMatch:
+    try:
+        session = session_manager.get_session_or_raise(db, sesssion_id)
+        role = Role(session.role)
+        traits_scores = session_manager.generate_trait_scores(db, sesssion_id)
+        return archetype_engine.get_top_archetype(role=role, trait_scores=traits_scores)
+    
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
