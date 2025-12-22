@@ -1,0 +1,50 @@
+[
+  {
+    "id": "engineer_scenario_1",
+    "role": "engineer",
+    "title": "Technical Debt vs Feature Request",
+    "description": "The PM has prioritized a new feature that users are requesting. However, you've identified critical technical debt that's causing 20% of user bugs. The refactor would take 2 weeks, same as the feature. The PM is pushing for the feature to ship this sprint.",
+    "order": 1,
+    "choices": [
+      {
+        "id": "engineer_1_choice_1",
+        "text": "Advocate strongly for the refactor first, explaining the long-term impact of technical debt",
+        "traits": ["long_term", "quality_focused", "risk_averse"]
+      },
+      {
+        "id": "engineer_1_choice_2",
+        "text": "Ship the feature but document the technical debt as a blocker for next sprint",
+        "traits": ["short_term", "collaborative", "pragmatic"]
+      },
+      {
+        "id": "engineer_1_choice_3",
+        "text": "Work extra hours to do both this sprint",
+        "traits": ["hands_on", "independent", "quality_focused"]
+      }
+    ]
+  },
+  {
+    "id": "engineer_scenario_2",
+    "role": "engineer",
+    "title": "Scope Creep Mid-Sprint",
+    "description": "You're midway through a sprint when the founder asks you to add 'one small feature' to the current release. It's not small—it would require rearchitecting part of your solution. The team is already stretched.",
+    "order": 2,
+    "choices": [
+      {
+        "id": "engineer_2_choice_1",
+        "text": "Push back firmly and explain the engineering implications",
+        "traits": ["long_term", "independent", "risk_averse"]
+      },
+      {
+        "id": "engineer_2_choice_2",
+        "text": "Accept the request but cut corners to make it work",
+        "traits": ["short_term", "collaborative", "speed_focused"]
+      },
+      {
+        "id": "engineer_2_choice_3",
+        "text": "Propose a minimal version that fits within current architecture",
+        "traits": ["pragmatic", "collaborative", "quality_focused"]
+      }
+    ]
+  }
+]
