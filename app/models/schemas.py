@@ -18,5 +18,3 @@ class DecideResponse(BaseModel):
     scenarios_completed: int
     total_scenarios: int
     is_completed: bool = False
-
-

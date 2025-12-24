@@ -20,6 +20,11 @@ def create_session_endpoint(
     role: Role,
     db: Session = Depends(get_db) 
 ) -> CreateSessionResponse:
+
+    if role not in Role:
+        raise HTTPException(status_code=400, detail="Invalid role specified")
+    elif role == Role.PRODUCT_MANAGER or role == Role.FOUNDER:
+        raise HTTPException(status_code=400, detail=f"Role {role.value} is not yet supported")
     return session_manager.create_session(db, role)
 
 
@@ -64,15 +69,15 @@ def submit_choice_endpoint(
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 
-@router.post("/{sesssion_id}/generate_profile", summary="Generate user profile based on decisions")
+@router.post("/{session_id}/generate_profile", summary="Generate user profile based on decisions")
 def generate_profile_endpoint(
-    sesssion_id: UUID,
+    session_id: UUID,
     db: Session = Depends(get_db)
 )-> ArchetypeMatch:
     try:
-        session = session_manager.get_session_or_raise(db, sesssion_id)
+        session = session_manager.get_session_or_raise(db, session_id)
         role = Role(session.role)
-        traits_scores = session_manager.generate_trait_scores(db, sesssion_id)
+        traits_scores = session_manager.generate_trait_scores(db, session_id)
         return archetype_engine.get_top_archetype(role=role, trait_scores=traits_scores)
     
     except ValueError as e:
