@@ -6,10 +6,6 @@ import { Send, Loader2 } from "lucide-react";
 import type { Role, Message } from "@/models";
 import { rolePrompts } from "@/data";
 
-
-
-
-
 export default function ReflectionChat({
   role,
   onRestart,
@@ -18,7 +14,19 @@ export default function ReflectionChat({
   sessionId: string;
   onRestart: () => void;
 }) {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const roleNames = {
+    engineer: "Engineer",
+    "product-manager": "Product Manager",
+    founder: "Founder",
+  };
+
+  const [messages, setMessages] = useState<Message[]>(() => [
+    {
+      role: "assistant",
+      content: `Thank you for completing the ${roleNames[role]} scenarios. I'm here to help you reflect on your decision-making patterns. Let's explore what drives your choices and how you think through complex situations.`,
+      timestamp: new Date(),
+    },
+  ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [turnCount, setTurnCount] = useState(0);
@@ -26,23 +34,9 @@ export default function ReflectionChat({
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const maxTurns = 6;
 
-  const roleNames = {
-    engineer: "Engineer",
-    "product-manager": "Product Manager",
-    founder: "Founder",
-  };
-
   useEffect(() => {
-    // Send initial message
-    const initialMessage: Message = {
-      role: "assistant",
-      content: `Thank you for completing the ${roleNames[role]} scenarios. I'm here to help you reflect on your decision-making patterns. Let's explore what drives your choices and how you think through complex situations.`,
-      timestamp: new Date(),
-    };
-    setMessages([initialMessage]);
-
     // Ask first reflection question after a brief delay
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       const firstQuestion: Message = {
         role: "assistant",
         content: rolePrompts[role][0],
@@ -50,6 +44,8 @@ export default function ReflectionChat({
       };
       setMessages((prev) => [...prev, firstQuestion]);
     }, 1500);
+
+    return () => clearTimeout(timer);
   }, [role]);
 
   useEffect(() => {
@@ -182,7 +178,7 @@ export default function ReflectionChat({
                 }}
                 placeholder="Share your thoughts..."
                 disabled={isTyping || isComplete}
-                className="flex-1 min-h-[60px] max-h-[200px] px-4 py-3 rounded-lg border bg-background resize-none focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50"
+                className="flex-1 min-h-15 max-h-50 px-4 py-3 rounded-lg border bg-background resize-none focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50"
                 rows={2}
               />
               <Button
@@ -206,10 +202,7 @@ export default function ReflectionChat({
   );
 }
 
-function generateReflectionResponse(
-  role: Role,
-  turn: number,
-): string {
+function generateReflectionResponse(role: Role, turn: number): string {
   const responses = {
     engineer: [
       "That's an interesting perspective. It sounds like you value finding pragmatic solutions. How do you typically decide when to push for the ideal technical solution versus accepting a compromise?",
