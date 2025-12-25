@@ -1,0 +1,20 @@
+[
+  {
+    "id": "engineer",
+    "name": "Early-stage Engineer",
+    "description":
+      "Navigate technical decisions, feature prioritization, and engineering culture."
+  },
+  {
+    "id": "product-manager",
+    "name": "Product Manager",
+    "description":
+      "Balance user needs, business goals, and technical constraints in fast-paced environments."
+  },
+  {
+    "id": "founder",
+    "name": "Founder/CEO",
+    "description":
+      "Make strategic decisions about vision, team, funding, and company direction."
+  }
+]

@@ -4,7 +4,7 @@ from uuid import UUID
 
 from app.db.database import get_db
 from app.models.enum import Role
-from app.models.schemas import CreateSessionResponse, DecideResponse
+from app.models.schemas import CreateSessionResponse, DecideRequest, DecideResponse
 from app.models.session import ArchetypeMatch
 from app.services import session_manager, scenario_engine, archetype_engine
 
@@ -42,18 +42,17 @@ def get_session_endpoint(
 @router.post("/{session_id}/decide", summary="Submit a choice for the current scenario")
 def submit_choice_endpoint(
     session_id: UUID,
-    scenario_id: str,
-    choice_id: str,
+    body: DecideRequest,
     db: Session = Depends(get_db)
-):
+)-> DecideResponse:
     try:
         # Sumit the choice using the session manager
-        session_manager.submit_choice(db, session_id, scenario_id, choice_id)
+        session_manager.submit_choice(db, session_id, body.scenario_id, body.choice_id)
 
         # Get next scenario
         session = session_manager.get_session_or_raise(db, session_id)
         role = Role(session.role)
-        next_scenario = scenario_engine.get_next_scenario(role, scenario_id)
+        next_scenario = scenario_engine.get_next_scenario(role, body.scenario_id)
         scenarios_completed = session_manager.get_scenarios_completed(db, session_id)
 
         return DecideResponse(

@@ -34,10 +34,14 @@ class Settings(BaseSettings):
   ENABLE_DOCS: bool = True
   ENABLE_OPENAPI: bool = True
   ENABLE_CORS: bool = True
-  CORS_ORIGINS: list = ["*"]
+  CORS_ORIGINS: list[str] = ["http://localhost:5173"]
   FRONTEND_HOST: str = "http://localhost:5173"
   ENVIRONMENT: Literal["local", "staging", "production"] = "local"
 
+  @property
+  def all_cors_origins(self) -> list[str]:
+    """Get all allowed CORS origins."""
+    return self.CORS_ORIGINS if self.ENABLE_CORS else []
 
 
 settings = Settings()

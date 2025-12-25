@@ -7,6 +7,7 @@ def start_uvicorn():
   uvicorn.run(
     "app.main:app",
     port=settings.SERVER_PORT,
+    reload=settings.ENVIRONMENT == "local",
     timeout_keep_alive=settings.UVICORN_TIMEOUT_KEEP_ALIVE,
     timeout_graceful_shutdown=settings.UVICORN_TIMEOUT_GRACEFUL_SHUTDOWN,
     log_level=settings.LOG_LEVEL
