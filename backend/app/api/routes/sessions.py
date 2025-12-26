@@ -4,7 +4,7 @@ from uuid import UUID
 
 from app.db.database import get_db
 from app.models.enum import Role
-from app.models.schemas import CreateSessionResponse, DecideRequest, DecideResponse
+from app.models.schemas import CreateSessionResponse, DecideRequest, DecideResponse, SessionResponse
 from app.models.session import ArchetypeMatch
 from app.services import session_manager, scenario_engine, archetype_engine
 
@@ -32,10 +32,10 @@ def create_session_endpoint(
 def get_session_endpoint(
     session_id: UUID,
     db: Session = Depends(get_db)
-):
-    session = session_manager.get_session(db, session_id)
+)-> SessionResponse:
+    session = session_manager.fetch_session(db, session_id)
     if session is None:
-        return {"error": "Session not found"}
+        raise HTTPException(status_code=404, detail="Session not found")
     return session
 
 

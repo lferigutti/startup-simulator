@@ -5,8 +5,8 @@ from sqlalchemy.orm import Session
 from app.db import ScenarioResponseModel
 from app.db.models import SessionModel
 from app.models.enum import Role
-from app.models.schemas import CreateSessionResponse
-from app.services.scenario_engine import get_first_scenario, get_total_scenarios, get_choice_traits
+from app.models.schemas import CreateSessionResponse, SessionResponse
+from app.services.scenario_engine import get_first_scenario, get_total_scenarios, get_choice_traits, get_next_scenario
 
 
 def create_session(db: Session, role: Role) -> CreateSessionResponse:
@@ -37,6 +37,24 @@ def create_session(db: Session, role: Role) -> CreateSessionResponse:
 def get_session(db: Session, session_id: UUID) -> SessionModel | None:
     """Retrieve a session by ID."""
     return db.query(SessionModel).filter(SessionModel.id == str(session_id)).first()
+
+
+def fetch_session(db: Session, session_id: UUID) -> SessionResponse | None:
+    session = get_session_or_raise(db, session_id)
+    role = Role(session.role)
+    current_scenario = get_next_scenario(role, session.scenario_responses[-1].scenario_id) if session.scenario_responses else get_first_scenario(role)
+    scenarios_completed = len(session.scenario_responses)
+    total_scenarios = get_total_scenarios(role)
+    is_completed = scenarios_completed >= total_scenarios
+    return SessionResponse(
+        sessionId=UUID(session.id),
+        role=role,
+        current_scenario=current_scenario,
+        scenarios_completed=scenarios_completed,
+        total_scenarios=total_scenarios,
+        is_completed=is_completed
+    )
+
 
 
 def get_session_or_raise(db: Session, session_id: UUID) -> SessionModel:

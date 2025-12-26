@@ -14,6 +14,14 @@ class CreateSessionResponse(BaseModel):
     total_scenarios: int
 
 
+class SessionResponse(BaseModel):
+    sessionId: UUID
+    role: Role
+    current_scenario: Optional[Scenario] = None
+    scenarios_completed: int
+    total_scenarios: int
+    is_completed: bool = False
+
 class DecideRequest(BaseModel):
     scenario_id: str
     choice_id: str

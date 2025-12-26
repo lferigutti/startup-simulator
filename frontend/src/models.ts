@@ -36,8 +36,10 @@ export interface Choice {
 export interface Session {
   sessionId: string;
   role: Role;
-  first_scenario: Scenario;
+  current_scenario: Scenario | null;
+  scenarios_completed: number;
   total_scenarios: number;
+  is_completed: boolean;
 }
 
 export interface DecideResponse {

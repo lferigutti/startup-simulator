@@ -11,13 +11,13 @@ const ScenarioView = ({
   roleName,
   scenario,
   handleNextScenario,
-  currentScenario,
+  scenariosCompleted,
   totalScenarios
 }: {
   roleName: string
   scenario: Scenario | null;
   handleNextScenario: (choiceId: string) => void;
-  currentScenario: number;
+  scenariosCompleted: number;
   totalScenarios: number;
 }) => {
 
@@ -45,14 +45,16 @@ const ScenarioView = ({
                 {roleName}
               </Badge>
               <span className="text-sm text-muted-foreground">
-                Scenario {currentScenario} of {totalScenarios}
+                Scenario {scenariosCompleted} of {totalScenarios}
               </span>
             </div>
 
             <div className="h-2 bg-muted rounded-full overflow-hidden">
               <div
                 className={`h-full transition-all duration-500`}
-                style={{ width: `${(currentScenario / totalScenarios) * 100}%` }}
+                style={{
+                  width: `${(scenariosCompleted / totalScenarios) * 100}%`,
+                }}
               />
             </div>
           </div>
@@ -111,7 +113,7 @@ const ScenarioView = ({
             size="lg"
             className="w-full"
           >
-            {currentScenario < totalScenarios - 1
+            {scenariosCompleted < totalScenarios - 1
               ? "Continue"
               : "View Your Profile"}
           </Button>

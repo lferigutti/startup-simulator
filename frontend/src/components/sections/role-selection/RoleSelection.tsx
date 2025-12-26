@@ -1,18 +1,18 @@
 import { Card } from "@/components/ui/card.tsx";
 import { Button } from "@/components/ui/button.tsx";
 import type { Role,RoleId } from "@/models.ts";
-import { useQuery } from "@tanstack/react-query";
-import { request } from "@/lib/request.ts";
 
 
 
 
-const RoleSelection = ({ onRoleSelect }: { onRoleSelect: (role: RoleId) => void }) => {
 
-  const {data: roles } = useQuery({ 
-    queryKey: ["roles"], queryFn: () => request<Role[]>("roles")});
-
-
+const RoleSelection = ({ 
+  roles,  
+  onRoleSelect,
+}: { 
+  roles: Role[] | null
+  onRoleSelect: (role: RoleId) => void 
+}) => {
 
   return (
     <div className="flex min-h-screen items-center justify-center px-4 py-16">
