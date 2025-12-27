@@ -2,37 +2,33 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import { CheckCircle2 } from "lucide-react";
 import type { Scenario } from "@/models";
-
-
 
 const ScenarioView = ({
   roleName,
   scenario,
   handleNextScenario,
   scenariosCompleted,
-  totalScenarios
+  totalScenarios,
 }: {
-  roleName: string
+  roleName: string;
   scenario: Scenario | null;
   handleNextScenario: (choiceId: string) => void;
   scenariosCompleted: number;
   totalScenarios: number;
 }) => {
-
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
 
   const onContinue = () => {
     if (selectedChoice) {
       handleNextScenario(selectedChoice);
       setSelectedChoice(null);
-    }
-    else {
+    } else {
       alert("Please select a choice to continue.");
     }
-
-  }
+  };
 
   return (
     <div className="min-h-screen py-12 px-4">
@@ -45,18 +41,11 @@ const ScenarioView = ({
                 {roleName}
               </Badge>
               <span className="text-sm text-muted-foreground">
-                Scenario {scenariosCompleted} of {totalScenarios}
+                Scenario {scenariosCompleted + 1} of {totalScenarios}
               </span>
             </div>
 
-            <div className="h-2 bg-muted rounded-full overflow-hidden">
-              <div
-                className={`h-full transition-all duration-500`}
-                style={{
-                  width: `${(scenariosCompleted / totalScenarios) * 100}%`,
-                }}
-              />
-            </div>
+            <Progress value={(scenariosCompleted / totalScenarios) * 100} />
           </div>
 
           {/* Scenario Content */}
@@ -121,6 +110,6 @@ const ScenarioView = ({
       )}
     </div>
   );
-}
+};
 
 export default ScenarioView;

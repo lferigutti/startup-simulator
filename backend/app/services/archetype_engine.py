@@ -2,10 +2,9 @@ import json
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from pydantic import BaseModel
-
 from app.models.enum import Role
 from app.models.session import Archetype, ArchetypeMatch
+from app.services.roles import get_role_by_id
 
 
 # Path to archetype data files
@@ -33,7 +32,7 @@ def _load_archetypes_for_role(role: Role) -> List[Archetype]:
         archetypes.append(
             Archetype(
                 id=item["id"],
-                role=Role(item["role"]),
+                role=get_role_by_id(Role(item["role"])),
                 name=item["name"],
                 key_traits=item["key_traits"],
                 message=item["message"],

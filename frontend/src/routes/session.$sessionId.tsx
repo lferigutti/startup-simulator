@@ -72,6 +72,8 @@ function ScenarioRouteComponent() {
     },
   });
 
+
+
   const handleNextScenario = (choiceId: string) => {
     if (!sessionData.current_scenario) {
       alert("No current scenario available.");
@@ -82,11 +84,12 @@ function ScenarioRouteComponent() {
       choiceId,
     });
   };
+  
 
   return (
     <ScenarioView
-      roleName={sessionData?.role.name || "Unknown Role"}
-      scenario={sessionData?.current_scenario || null}
+      roleName={sessionData.role.name}
+      scenario={sessionData.current_scenario}
       handleNextScenario={handleNextScenario}
       scenariosCompleted={sessionData.scenarios_completed}
       totalScenarios={sessionData.total_scenarios}

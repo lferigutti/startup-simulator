@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from uuid import UUID
 
 from app.models.enum import Role
-from app.models.session import Scenario
+from app.models.session import Scenario, RoleResponse
 
 
 class CreateSessionResponse(BaseModel):
@@ -16,7 +16,7 @@ class CreateSessionResponse(BaseModel):
 
 class SessionResponse(BaseModel):
     sessionId: UUID
-    role: Role
+    role: RoleResponse
     current_scenario: Optional[Scenario] = None
     scenarios_completed: int
     total_scenarios: int
@@ -34,7 +34,3 @@ class DecideResponse(BaseModel):
     is_completed: bool = False
 
 
-class RoleResponse(BaseModel):
-    id: str
-    name: Optional[str] = None
-    description: Optional[str] = None

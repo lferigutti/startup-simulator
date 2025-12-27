@@ -1,5 +1,5 @@
 from uuid import UUID
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel
 from datetime import datetime
@@ -7,11 +7,17 @@ from datetime import datetime
 from app.models.enum import Role, WorkflowState
 
 
+
 class Choice(BaseModel):
     id: str
     scenario_id: str
     choice_text: str
     traits: List[str]
+
+class RoleResponse(BaseModel):
+    id: Role
+    name: Optional[str] = None
+    description: Optional[str] = None
 
 
 class Scenario(BaseModel):
@@ -34,7 +40,7 @@ class Session(BaseModel):
 
 class Archetype(BaseModel):
     id: str
-    role: Role
+    role: RoleResponse
     name: str
     key_traits: List[str]
     message: str

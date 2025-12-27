@@ -28,3 +28,9 @@ def fetch_roles(
     return roles
     
 
+def get_role_by_id(role_id: str) -> RoleResponse | None:
+    roles = fetch_roles(include_details=True)
+    for role in roles:
+        if role.id == role_id:
+            return role
+    return None

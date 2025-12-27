@@ -69,7 +69,7 @@ class TestDecideEndpoint:
         # Submit first choice
         response = client.post(
             f"/api/v1/sessions/{session_id}/decide",
-            params={
+            json={
                 "scenario_id": "engineer_scenario_1",
                 "choice_id": "engineer_1_choice_1"
             }
@@ -98,7 +98,7 @@ class TestDecideEndpoint:
         while True:
             response = client.post(
                 f"/api/v1/sessions/{session_id}/decide",
-                params={
+                json={
                     "scenario_id": scenario_id,
                     "choice_id": choice_id,
                 },
@@ -122,7 +122,7 @@ class TestDecideEndpoint:
         
         response = client.post(
             f"/api/v1/sessions/{fake_id}/decide",
-            params={
+            json={
                 "scenario_id": "engineer_scenario_1",
                 "choice_id": "engineer_1_choice_1"
             }
@@ -139,7 +139,7 @@ class TestDecideEndpoint:
         # Submit invalid choice
         response = client.post(
             f"/api/v1/sessions/{session_id}/decide",
-            params={
+            json={
                 "scenario_id": "engineer_scenario_1",
                 "choice_id": "invalid_choice"
             }
@@ -157,7 +157,7 @@ class TestDecideEndpoint:
         # First decision
         response1 = client.post(
             f"/api/v1/sessions/{session_id}/decide",
-            params={
+            json={
                 "scenario_id": "engineer_scenario_1",
                 "choice_id": "engineer_1_choice_2"
             }
@@ -169,7 +169,7 @@ class TestDecideEndpoint:
         # Second decision
         response2 = client.post(
             f"/api/v1/sessions/{session_id}/decide",
-            params={
+            json={
                 "scenario_id": "engineer_scenario_2",
                 "choice_id": "engineer_2_choice_3"
             }
@@ -180,9 +180,9 @@ class TestDecideEndpoint:
 
 
 class TestGenerateProfileEndpoint:
-    """Tests for POST /sessions/{sesssion_id}/generate_profile endpoint."""
+    """Tests for POST /sessions/{sesssion_id}/profile endpoint."""
 
-    def test_generate_profile_returns_top_archetype(self, client):
+    def test_generate_profile_success(self, client):
         # Create session
         create_response = client.post("/api/v1/sessions/create?role=engineer")
         session_id = create_response.json()["sessionId"]
@@ -197,22 +197,76 @@ class TestGenerateProfileEndpoint:
         for scenario_id, choice_id in submissions:
             resp = client.post(
                 f"/api/v1/sessions/{session_id}/decide",
-                params={"scenario_id": scenario_id, "choice_id": choice_id},
+                json={"scenario_id": scenario_id, "choice_id": choice_id},
             )
             assert resp.status_code == 200
 
         # Generate profile
-        response = client.post(f"/api/v1/sessions/{session_id}/generate_profile")
+        response = client.post(f"/api/v1/sessions/{session_id}/profile")
         assert response.status_code == 200
-        data = response.json()
-
-        assert data["archetype"]["id"] == "engineer_craftsman"
-        assert set(data["matched_traits"]).issuperset({"long_term", "quality_focused", "hands_on", "independent"})
-        assert data["coverage"] > 0.0
-        assert data["score"] > 0
+        assert response.json() == "OK"
 
     def test_generate_profile_invalid_session(self, client):
         fake_id = "00000000-0000-0000-0000-000000000000"
-        response = client.post(f"/api/v1/sessions/{fake_id}/generate_profile")
+        response = client.post(f"/api/v1/sessions/{fake_id}/profile")
         assert response.status_code == 400
         assert "not found" in response.json().get("detail", "").lower()
+
+
+class TestGetRoleProfileEndpoint:
+    """Tests for GET /sessions/{session_id}/profile endpoint."""
+
+    def test_get_profile_success(self, client):
+        """Should return the generated role profile."""
+        # Create session
+        create_response = client.post("/api/v1/sessions/create?role=engineer")
+        session_id = create_response.json()["sessionId"]
+
+        # Submit choices
+        submissions = [
+            ("engineer_scenario_1", "engineer_1_choice_1"),
+            ("engineer_scenario_2", "engineer_2_choice_1"),
+            ("engineer_scenario_6", "engineer_6_choice_1"),
+        ]
+
+        for scenario_id, choice_id in submissions:
+            resp = client.post(
+                f"/api/v1/sessions/{session_id}/decide",
+                json={"scenario_id": scenario_id, "choice_id": choice_id},
+            )
+            assert resp.status_code == 200
+
+        # Generate profile
+        gen_response = client.post(f"/api/v1/sessions/{session_id}/profile")
+        assert gen_response.status_code == 200
+
+        # Get profile
+        response = client.get(f"/api/v1/sessions/{session_id}/profile")
+        assert response.status_code == 200
+        data = response.json()
+
+        assert "archetype" in data
+        assert "score" in data
+        assert "matched_traits" in data
+        assert "missing_traits" in data
+        assert "coverage" in data
+        assert data["archetype"]["id"] == "engineer_craftsman"
+        assert data["coverage"] > 0.0
+        assert data["score"] > 0
+
+    def test_get_profile_not_generated(self, client):
+        """Should return 404 when profile hasn't been generated yet."""
+        # Create session
+        create_response = client.post("/api/v1/sessions/create?role=engineer")
+        session_id = create_response.json()["sessionId"]
+
+        # Try to get profile without generating it
+        response = client.get(f"/api/v1/sessions/{session_id}/profile")
+        assert response.status_code == 404
+        assert "not generated" in response.json().get("detail", "").lower()
+
+    def test_get_profile_invalid_session(self, client):
+        """Should return 404 for non-existent session."""
+        fake_id = "00000000-0000-0000-0000-000000000000"
+        response = client.get(f"/api/v1/sessions/{fake_id}/profile")
+        assert response.status_code == 404

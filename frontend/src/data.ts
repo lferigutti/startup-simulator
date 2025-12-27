@@ -66,7 +66,7 @@ export const scenarios = {
       ],
     },
   ],
-  "product-manager": [
+  "product_manager": [
     {
       id: 1,
       title: "Feature Requests vs. User Research",
@@ -209,7 +209,7 @@ export const rolePrompts = {
     "How do you typically approach decisions when there's no clear right answer?",
     "Tell me about a time when you had to advocate for a technical approach that wasn't popular.",
   ],
-  "product-manager": [
+  "product_manager": [
     "How do you typically gather confidence in your product decisions?",
     "What role does data play in your decision-making process?",
     "How do you handle situations where stakeholders have conflicting priorities?",

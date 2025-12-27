@@ -5,8 +5,8 @@ from uuid import UUID
 from app.db.database import get_db
 from app.models.enum import Role
 from app.models.schemas import CreateSessionResponse, DecideRequest, DecideResponse, SessionResponse
-from app.models.session import ArchetypeMatch
 from app.services import session_manager, scenario_engine, archetype_engine
+from app.models.session import ArchetypeMatch
 
 router = APIRouter(tags=["Sessions"], prefix="/sessions")
 
@@ -55,6 +55,14 @@ def submit_choice_endpoint(
         next_scenario = scenario_engine.get_next_scenario(role, body.scenario_id)
         scenarios_completed = session_manager.get_scenarios_completed(db, session_id)
 
+        if next_scenario is None:
+            try:
+                # Generate and store role profile
+                role_profile = session_manager.generate_role_profile(db, session_id)
+                session_manager.store_role_profile(db, session_id, role_profile)
+            except ValueError:
+                pass  # Profile generation failure should not block scenario progression
+
         return DecideResponse(
             next_scenario=next_scenario,
             scenarios_completed=scenarios_completed,
@@ -64,22 +72,31 @@ def submit_choice_endpoint(
 
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="Internal Server Error")
 
 
-@router.post("/{session_id}/generate_profile", summary="Generate user profile based on decisions")
+
+@router.post("/{session_id}/profile", summary="Generate user profile based on decisions")
 def generate_profile_endpoint(
+    session_id: UUID,
+    db: Session = Depends(get_db)
+)-> str:
+    try:
+        role_profile = session_manager.generate_role_profile(db, session_id)
+        session_manager.store_role_profile(db, session_id, role_profile)
+        return "OK"
+    
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+    
+
+@router.get("/{session_id}/profile", summary="Retrieve the generated role profile for the session")
+def get_role_profile_endpoint(
     session_id: UUID,
     db: Session = Depends(get_db)
 )-> ArchetypeMatch:
     try:
-        session = session_manager.get_session_or_raise(db, session_id)
-        role = Role(session.role)
-        traits_scores = session_manager.generate_trait_scores(db, session_id)
-        return archetype_engine.get_top_archetype(role=role, trait_scores=traits_scores)
-    
+        return session_manager.get_role_profile(db, session_id)
     except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="Internal Server Error")
+        raise HTTPException(status_code=404, detail=str(e))
+

@@ -5,7 +5,7 @@ from typing import List
 from sqlalchemy import String, Text, DateTime, ForeignKey, JSON, Enum as SQLEnum
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
-from app.models.enum import Role, WorkflowState
+from app.models.enum import WorkflowState
 
 
 class Base(DeclarativeBase):

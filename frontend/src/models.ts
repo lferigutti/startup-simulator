@@ -3,7 +3,7 @@ export interface Role {
   name: string;
   description: string;
 }
-export type RoleId = "founder" | "engineer" | "marketer" | "designer" | "product-manager";
+export type RoleId = "founder" | "engineer" | "marketer" | "designer" | "product_manager";
 
 export type Phase = "role-selection" | "scenarios" | "profile" | "reflection";
 
@@ -47,4 +47,20 @@ export interface DecideResponse {
   scenarios_completed: number;
   total_scenarios: number;
   is_completed: boolean;
+}
+
+export interface Archetype {
+    id: string;
+    role: Role;
+    name: string;
+    key_traits: string[];
+    message: string;
+}
+
+export interface ArchetypeMatch {
+    archetype: Archetype;
+    score: number;
+    matched_traits: string[];
+    missing_traits: string[];
+    coverage: number;
 }
