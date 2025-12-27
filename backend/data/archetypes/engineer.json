@@ -4,14 +4,34 @@
     "role": "engineer",
     "name": "The Craftsman",
     "key_traits": ["long_term", "quality_focused", "hands_on", "independent"],
-    "message": "You care deeply about doing things right. You'll push back on shortcuts and build things that last. Watch out for perfectionism slowing you down."
+    "message": "You care deeply about doing things right. You'll push back on shortcuts and build things that last. Watch out for perfectionism slowing you down.",
+    "strengths": [
+      "You raise the quality bar for the whole team.",
+      "You spot long-term risks and edge cases early.",
+      "You can be trusted with complex, critical work."
+    ],
+    "growth_areas": [
+      "You may delay shipping while chasing the ideal solution.",
+      "You can get frustrated when others accept trade-offs you disagree with.",
+      "You might avoid simpler approaches that are 'good enough' for now."
+    ]
   },
   {
     "id": "engineer_firefighter",
     "role": "engineer",
     "name": "The Firefighter",
     "key_traits": ["short_term", "speed_focused", "hands_on", "risk_taker"],
-    "message": "You thrive in chaos and can ship under pressure. Startups love you early on, but make sure you don't burn out or leave a trail of tech debt."
+    "message": "You thrive in chaos and can ship under pressure. Startups love you early on, but make sure you don't burn out or leave a trail of tech debt.",
+    "strengths": [
+      "You move fast when things are on fire.",
+      "You are willing to make bold calls under pressure.",
+      "You keep the team from getting stuck in analysis."
+    ],
+    "growth_areas": [
+      "You may leave behind messy code and tech debt.",
+      "You might struggle to slow down for planning or documentation.",
+      "You can normalize crisis mode instead of preventing fires."
+    ]
   },
   {
     "id": "engineer_team_player",
@@ -23,7 +43,17 @@
       "quality_focused",
       "risk_averse"
     ],
-    "message": "You keep the team aligned and avoid conflict. You're great at consensus-building, but sometimes you need to push harder for what you believe."
+    "message": "You keep the team aligned and avoid conflict. You're great at consensus-building, but sometimes you need to push harder for what you believe.",
+    "strengths": [
+      "You build trust and psychological safety on the team.",
+      "You listen well and make others feel heard.",
+      "You help turn individual work into a coordinated effort."
+    ],
+    "growth_areas": [
+      "You may avoid hard conversations to keep the peace.",
+      "You can over-index on consensus instead of clear decisions.",
+      "You might downplay your own technical opinions."
+    ]
   },
   {
     "id": "engineer_architect",
@@ -35,7 +65,17 @@
       "independent",
       "quality_focused"
     ],
-    "message": "You think in systems and see around corners. You're invaluable for scaling, but may frustrate founders who want speed over structure."
+    "message": "You think in systems and see around corners. You're invaluable for scaling, but may frustrate founders who want speed over structure.",
+    "strengths": [
+      "You design systems that can handle future growth.",
+      "You connect technical decisions to long-term consequences.",
+      "You are thoughtful about trade-offs and complexity."
+    ],
+    "growth_areas": [
+      "You may over-engineer when a simpler solution would do.",
+      "You can be perceived as a blocker when others want to move fast.",
+      "You might prefer designing to actually shipping."
+    ]
   },
   {
     "id": "engineer_pragmatist",
@@ -47,7 +87,17 @@
       "diplomatic",
       "speed_focused"
     ],
-    "message": "You balance idealism with reality. You know when to compromise. Just make sure you're not always the one giving ground."
+    "message": "You balance idealism with reality. You know when to compromise. Just make sure you're not always the one giving ground.",
+    "strengths": [
+      "You can adapt to what the situation really needs.",
+      "You are comfortable with 'good enough for now'.",
+      "You help the team keep moving instead of getting stuck."
+    ],
+    "growth_areas": [
+      "You may accept too many compromises over time.",
+      "You might struggle to advocate for deeper technical investment.",
+      "You can be pulled in many directions by others' priorities."
+    ]
   },
   {
     "id": "engineer_challenger",
@@ -59,6 +109,16 @@
       "independent",
       "risk_taker"
     ],
-    "message": "You speak up and push boundaries. You make teams better through debate, but watch your tone—not everyone sees conflict as productive."
+    "message": "You speak up and push boundaries. You make teams better through debate, but watch your tone—not everyone sees conflict as productive.",
+    "strengths": [
+      "You question assumptions and catch weak ideas early.",
+      "You are willing to raise uncomfortable truths.",
+      "You can drive technical and process improvements through debate."
+    ],
+    "growth_areas": [
+      "You may come across as harsh or dismissive.",
+      "You can exhaust people who dislike frequent conflict.",
+      "You might underestimate the value of harmony and buy-in."
+    ]
   }
 ]

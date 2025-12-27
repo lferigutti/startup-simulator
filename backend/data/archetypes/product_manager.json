@@ -1,0 +1,114 @@
+[
+  {
+    "id": "pm_data_strategist",
+    "role": "product_manager",
+    "name": "The Data-Driven Strategist",
+    "key_traits": [
+      "long_term",
+      "data_driven",
+      "risk_averse",
+      "quality_focused"
+    ],
+    "message": "You lean heavily on data and systems thinking. You’re great at building roadmaps that line up with metrics, but remember not every important insight shows up in dashboards right away.",
+    "strengths": [
+      "You connect product decisions directly to measurable outcomes.",
+      "You are comfortable working with analytics and experiments.",
+      "You bring structure to prioritization conversations."
+    ],
+    "growth_areas": [
+      "You may discount qualitative or early, messy signals.",
+      "You might move slowly when data is incomplete or noisy.",
+      "You can overwhelm stakeholders with numbers instead of a story."
+    ]
+  },
+  {
+    "id": "pm_visionary_storyteller",
+    "role": "product_manager",
+    "name": "The Visionary Storyteller",
+    "key_traits": [
+      "long_term",
+      "intuition_driven",
+      "risk_taker",
+      "collaborative"
+    ],
+    "message": "You see possibilities before others do and can rally people around a strong narrative. Your challenge is grounding that story in enough reality that engineering and users can follow.",
+    "strengths": [
+      "You craft a clear, inspiring vision for the product.",
+      "You help teams understand the 'why' behind the work.",
+      "You are good at getting buy-in across functions."
+    ],
+    "growth_areas": [
+      "You may promise experiences that are hard to deliver technically.",
+      "You might move on to the next idea before the last one lands.",
+      "You can underinvest in detailed execution and follow-through."
+    ]
+  },
+  {
+    "id": "pm_delivery_hacker",
+    "role": "product_manager",
+    "name": "The Delivery Hacker",
+    "key_traits": ["short_term", "speed_focused", "hands_on", "risk_taker"],
+    "message": "You love shipping fast and unblocking teams. This is powerful in early stages, but long term you’ll need to protect quality and avoid turning every sprint into a fire drill.",
+    "strengths": [
+      "You keep momentum high and reduce waiting time.",
+      "You are willing to make quick trade-offs to ship.",
+      "You help teams feel progress, especially under uncertainty."
+    ],
+    "growth_areas": [
+      "You may normalize shortcuts that hurt users later.",
+      "You might skip validation and discovery steps.",
+      "You can leave product and engineering in a constant rush."
+    ]
+  },
+  {
+    "id": "pm_team_diplomat",
+    "role": "product_manager",
+    "name": "The Team Diplomat",
+    "key_traits": ["collaborative", "diplomatic", "risk_averse", "short_term"],
+    "message": "You’re skilled at keeping stakeholders aligned and tensions low. That makes you a glue for the company, but sometimes you’ll have to create friction by saying a clear ‘no’.",
+    "strengths": [
+      "You build bridges between teams with different incentives.",
+      "You reduce unnecessary conflict and misunderstanding.",
+      "You make people feel heard in roadmap decisions."
+    ],
+    "growth_areas": [
+      "You may avoid strong 'no' when it is needed.",
+      "You might accept scope creep to keep stakeholders happy.",
+      "You can blur product focus by trying to satisfy everyone."
+    ]
+  },
+  {
+    "id": "pm_user_champion",
+    "role": "product_manager",
+    "name": "The User Champion",
+    "key_traits": ["quality_focused", "hands_on", "long_term", "independent"],
+    "message": "You stay close to users and obsess over their experience. You bring real empathy into decisions, but you may need to step back and think more about business constraints and scaling.",
+    "strengths": [
+      "You bring real user voices into every conversation.",
+      "You notice friction and UX issues others miss.",
+      "You advocate for user value over pure internal convenience."
+    ],
+    "growth_areas": [
+      "You may underweight revenue or operational constraints.",
+      "You might struggle when business needs conflict with UX purity.",
+      "You can get pulled into solving individual user requests."
+    ]
+  },
+  {
+    "id": "pm_stakeholder_broker",
+    "role": "product_manager",
+    "name": "The Stakeholder Broker",
+    "key_traits": ["collaborative", "diplomatic", "data_driven", "delegator"],
+    "message": "You’re great at balancing sales, founders, and engineering needs. You can find workable compromises, but watch that you don’t dilute the product vision by trying to please everyone at once.",
+    "strengths": [
+      "You understand and can articulate different stakeholders’ incentives.",
+      "You are skilled at negotiating trade-offs that people accept.",
+      "You help prevent hidden misalignment from blowing up later."
+    ],
+    "growth_areas": [
+      "You may converge on the middle ground too often.",
+      "You might avoid taking a strong stance on product direction.",
+      "You can slowly erode a sharp product vision through compromises."
+    ]
+  }
+]

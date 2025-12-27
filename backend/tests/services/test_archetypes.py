@@ -64,3 +64,47 @@ def test_get_top_archetype_helper():
     top = get_top_archetype(Role.ENGINEER, scores)
     assert top is not None
     assert top.archetype.id == "engineer_challenger"
+
+
+def test_founder_archetypes_load_and_query():
+    archetypes = get_archetypes_for_role(Role.FOUNDER)
+    assert len(archetypes) == 6
+    ids = {a.id for a in archetypes}
+    assert ids == {
+        "founder_visionary",
+        "founder_operator",
+        "founder_fundraiser",
+        "founder_product_builder",
+        "founder_firefighter",
+        "founder_people_first_leader",
+    }
+
+    visionary = get_archetype_by_id(Role.FOUNDER, "founder_visionary")
+    assert visionary is not None
+    assert visionary.name == "The Visionary"
+
+    by_name = get_archetype_by_name(Role.FOUNDER, "the visionary")
+    assert by_name is not None
+    assert by_name.id == "founder_visionary"
+
+
+def test_product_manager_archetypes_load_and_query():
+    archetypes = get_archetypes_for_role(Role.PRODUCT_MANAGER)
+    assert len(archetypes) == 6
+    ids = {a.id for a in archetypes}
+    assert ids == {
+        "pm_data_strategist",
+        "pm_visionary_storyteller",
+        "pm_delivery_hacker",
+        "pm_team_diplomat",
+        "pm_user_champion",
+        "pm_stakeholder_broker",
+    }
+
+    strategist = get_archetype_by_id(Role.PRODUCT_MANAGER, "pm_data_strategist")
+    assert strategist is not None
+    assert strategist.name == "The Data-Driven Strategist"
+
+    by_name = get_archetype_by_name(Role.PRODUCT_MANAGER, "the data-driven strategist")
+    assert by_name is not None
+    assert by_name.id == "pm_data_strategist"

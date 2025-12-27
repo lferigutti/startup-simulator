@@ -8,18 +8,18 @@
     "choices": [
       {
         "id": "engineer_1_choice_1",
-        "text": "Advocate strongly for the refactor first, explaining the long-term impact of technical debt",
-        "traits": ["long_term", "quality_focused", "risk_averse"]
+        "text": "Advocate strongly for doing the refactor first, using data on bugs and velocity to explain the long-term impact of technical debt.",
+        "traits": ["long_term", "quality_focused", "data_driven"]
       },
       {
         "id": "engineer_1_choice_2",
-        "text": "Ship the feature but document the technical debt as a blocker for next sprint",
+        "text": "Ship the feature now but clearly document the technical debt as a blocker for the next sprint.",
         "traits": ["short_term", "collaborative", "risk_averse"]
       },
       {
         "id": "engineer_1_choice_3",
-        "text": "Work extra hours to do both this sprint",
-        "traits": ["hands_on", "independent", "quality_focused"]
+        "text": "Work extra hours to try to do both this sprint, taking on the extra load yourself.",
+        "traits": ["hands_on", "independent", "speed_focused"]
       }
     ]
   },
@@ -42,8 +42,13 @@
       },
       {
         "id": "engineer_2_choice_3",
-        "text": "Propose a minimal version that fits within current architecture",
-        "traits": ["long_term", "collaborative", "quality_focused"]
+        "text": "Propose a minimal version that fits within the current architecture and has a clear upgrade path later.",
+        "traits": [
+          "long_term",
+          "collaborative",
+          "quality_focused",
+          "data_driven"
+        ]
       }
     ]
   },
@@ -86,13 +91,7 @@
       {
         "id": "engineer_4_choice_1",
         "text": "Say nothing and work extra hours to meet the deadline.",
-        "traits": [
-          "speed_focused",
-          "independent",
-          "short_term",
-          "hands_on",
-          "risk_taker"
-        ]
+        "traits": ["short_term", "speed_focused", "hands_on", "risk_taker"]
       },
       {
         "id": "engineer_4_choice_2",

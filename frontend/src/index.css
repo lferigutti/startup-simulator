@@ -16,7 +16,8 @@
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+
+  --muted-foreground: oklch(0.45 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -25,7 +26,7 @@
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
 
-  /* Role-specific colors */
+
   --engineer: 195 85% 52%;
   --product: 270 70% 65%;
   --founder: 35 95% 58%;
@@ -47,7 +48,7 @@
 }
 
 .dark {
-  /* Dark mode palette maintaining calm, professional aesthetic */
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -68,7 +69,7 @@
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
 
-  /* Role-specific colors for dark mode */
+
   --engineer: 195 75% 45%;
   --product: 270 60% 58%;
   --founder: 35 90% 52%;
@@ -89,7 +90,7 @@
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
+  --font-sans: "DM Sans", "Geist Fallback";
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);

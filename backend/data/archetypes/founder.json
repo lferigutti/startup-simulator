@@ -1,0 +1,127 @@
+[
+  {
+    "id": "founder_visionary",
+    "role": "founder",
+    "name": "The Visionary",
+    "key_traits": [
+      "long_term",
+      "intuition_driven",
+      "risk_taker",
+      "independent"
+    ],
+    "message": "You think far into the future and are willing to make bold bets before the data is obvious. Your conviction can inspire others, but be careful not to ignore real signals from the market or your team.",
+    "strengths": [
+      "You create a compelling long-term story for the company.",
+      "You are willing to move before others see the opportunity.",
+      "You can rally people around an ambitious direction."
+    ],
+    "growth_areas": [
+      "You may overlook uncomfortable data that contradicts your vision.",
+      "You might change direction faster than the team can follow.",
+      "You can underestimate the operational work needed to realize your ideas."
+    ]
+  },
+  {
+    "id": "founder_operator",
+    "role": "founder",
+    "name": "The Operator",
+    "key_traits": [
+      "long_term",
+      "data_driven",
+      "risk_averse",
+      "quality_focused",
+      "delegator"
+    ],
+    "message": "You treat the company like a system: you care about processes, numbers, and reliability. You build something that can actually scale, but remember to leave space for messy experiments and non-linear jumps.",
+    "strengths": [
+      "You create structure that helps people do their best work.",
+      "You keep a close eye on the numbers and reality of the business.",
+      "You are thoughtful about risk and sustainability."
+    ],
+    "growth_areas": [
+      "You may say 'no' to big swings that could unlock step changes.",
+      "You might over-index on process in very early, messy stages.",
+      "You can be slower to make high-uncertainty bets."
+    ]
+  },
+  {
+    "id": "founder_fundraiser",
+    "role": "founder",
+    "name": "The Fundraiser",
+    "key_traits": [
+      "short_term",
+      "speed_focused",
+      "collaborative",
+      "diplomatic",
+      "risk_taker"
+    ],
+    "message": "You are great at telling the story, building relationships, and moving quickly to unlock capital and deals. Just watch that the story you sell does not drift too far from what the product and team can actually deliver.",
+    "strengths": [
+      "You build strong relationships with investors and partners.",
+      "You can raise attention and resources when the company needs them.",
+      "You are comfortable operating in fast, high-stakes environments."
+    ],
+    "growth_areas": [
+      "You may overpromise compared to what the team can deliver.",
+      "You might spend too much time fundraising vs. improving the product.",
+      "You can be tempted to chase what sells instead of what works."
+    ]
+  },
+  {
+    "id": "founder_product_builder",
+    "role": "founder",
+    "name": "The Product Builder",
+    "key_traits": ["long_term", "quality_focused", "hands_on", "collaborative"],
+    "message": "You live close to the product and users. You sweat the details and want the experience to feel right. Your challenge is to step back enough to work on the company, not just in the product.",
+    "strengths": [
+      "You deeply understand your users and their problems.",
+      "You care about craft and product quality.",
+      "You can translate user insight into concrete improvements."
+    ],
+    "growth_areas": [
+      "You may avoid CEO work in favor of product work.",
+      "You might struggle to hand off product decisions as the team grows.",
+      "You can underinvest in go-to-market and operations."
+    ]
+  },
+  {
+    "id": "founder_firefighter",
+    "role": "founder",
+    "name": "The Firefighter Founder",
+    "key_traits": [
+      "short_term",
+      "speed_focused",
+      "hands_on",
+      "risk_taker",
+      "independent"
+    ],
+    "message": "You jump on every fire and can keep the company alive through chaos. That makes you invaluable in early crises, but long term you will need to build systems and trust others or you will burn out.",
+    "strengths": [
+      "You keep the company alive when things go wrong.",
+      "You are willing to do whatever it takes in the moment.",
+      "You are comfortable making hard calls quickly."
+    ],
+    "growth_areas": [
+      "You may build a culture that relies on you to solve everything.",
+      "You might postpone building systems and delegating.",
+      "You can burn out yourself and your team if crisis mode never ends."
+    ]
+  },
+  {
+    "id": "founder_people_first_leader",
+    "role": "founder",
+    "name": "The People-First Leader",
+    "key_traits": ["collaborative", "diplomatic", "risk_averse", "long_term"],
+    "message": "You think deeply about the people side of the company: culture, psychological safety, and relationships. That creates loyalty and resilience, but sometimes you will have to make hard calls that upset people in the short term.",
+    "strengths": [
+      "You create a culture where people feel safe and supported.",
+      "You are attentive to morale and human dynamics.",
+      "You build long-term loyalty and resilience in the team."
+    ],
+    "growth_areas": [
+      "You may avoid or delay painful decisions that affect people.",
+      "You might carry too much emotional weight for the whole company.",
+      "You can struggle to prioritize business needs over individual preferences."
+    ]
+  }
+]

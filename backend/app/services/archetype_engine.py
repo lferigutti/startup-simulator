@@ -36,6 +36,8 @@ def _load_archetypes_for_role(role: Role) -> List[Archetype]:
                 name=item["name"],
                 key_traits=item["key_traits"],
                 message=item["message"],
+                strengths=item.get("strengths"),
+                growth_areas=item.get("growth_areas"),
             )
         )
 

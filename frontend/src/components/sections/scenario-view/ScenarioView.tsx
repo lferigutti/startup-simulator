@@ -3,17 +3,22 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { CheckCircle2 } from "lucide-react";
-import type { Scenario } from "@/models";
+import {
+ArrowLeft,
+CheckCircle2 } from "lucide-react";
+import type { Role,
+Scenario } from "@/models";
+import ROLE_STYLES from "@/data.tsx";
+
 
 const ScenarioView = ({
-  roleName,
+  role,
   scenario,
   handleNextScenario,
   scenariosCompleted,
   totalScenarios,
 }: {
-  roleName: string;
+  role: Role;
   scenario: Scenario | null;
   handleNextScenario: (choiceId: string) => void;
   scenariosCompleted: number;
@@ -36,9 +41,22 @@ const ScenarioView = ({
         <div className="max-w-3xl mx-auto">
           {/* Header */}
           <div className="mb-12">
+            <a href="/" className="mb-6 inline-block text-sm text-primary">
+              <ArrowLeft className="inline-block mr-2" /> Back to Home
+            </a>
             <div className="flex items-center justify-between mb-4">
-              <Badge variant="outline" className="text-sm">
-                {roleName}
+              <Badge
+                variant="outline"
+                className="text-sm text"
+                style={
+                  ROLE_STYLES[role.id]
+                    ? {
+                        borderColor: `hsl(var(${ROLE_STYLES[role.id].colorVar}))`,
+                      }
+                    : undefined
+                }
+              >
+                {role.name}
               </Badge>
               <span className="text-sm text-muted-foreground">
                 Scenario {scenariosCompleted + 1} of {totalScenarios}
@@ -54,13 +72,11 @@ const ScenarioView = ({
               {scenario.title}
             </h1>
 
-            <div className="prose prose-lg max-w-none mb-8">
-              <p className="text-muted-foreground leading-relaxed">
+            <div className="max-w-none mb-8">
+              <p className="text-foreground/85 text-lg md:text-xl leading-relaxed">
                 {scenario.description}
               </p>
             </div>
-
-            <p className="text-lg font-medium">{scenario.title}</p>
           </div>
 
           {/* Choices */}
@@ -87,7 +103,7 @@ const ScenarioView = ({
                       <CheckCircle2 className="w-4 h-4 text-primary-foreground" />
                     )}
                   </div>
-                  <p className="text-base leading-relaxed flex-1">
+                  <p className="text-lg leading-relaxed flex-1 text-foreground/90">
                     {choice.choice_text}
                   </p>
                 </div>

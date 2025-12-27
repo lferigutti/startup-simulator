@@ -44,6 +44,8 @@ class Archetype(BaseModel):
     name: str
     key_traits: List[str]
     message: str
+    strengths: Optional[List[str]] = None
+    growth_areas: Optional[List[str]] = None
 
 
 class ArchetypeMatch(BaseModel):

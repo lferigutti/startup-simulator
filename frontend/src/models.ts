@@ -55,6 +55,8 @@ export interface Archetype {
     name: string;
     key_traits: string[];
     message: string;
+    strengths?: string[];
+    growth_areas?: string[];
 }
 
 export interface ArchetypeMatch {

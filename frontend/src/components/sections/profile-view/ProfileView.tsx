@@ -1,10 +1,11 @@
-import {capitalize} from "lodash";
+import { capitalize } from "lodash";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, X, Sparkles, Target, TrendingUp } from "lucide-react";
 import type { ArchetypeMatch } from "@/models";
+import ROLE_STYLES from "@/data.tsx";
 
 interface ProfileViewProps {
   profile: ArchetypeMatch;
@@ -21,21 +22,12 @@ export default function ProfileView({
 
   const roleColors: Record<string, string> = {
     engineer: "border-blue-500",
-    "product_manager": "border-purple-500",
+    product_manager: "border-purple-500",
     founder: "border-amber-500",
   };
 
-  const roleBgColors: Record<string, string> = {
-    engineer: "bg-blue-500/10 text-blue-600",
-    "product_manager": "bg-purple-500/10 text-purple-600",
-    founder: "bg-amber-500/10 text-amber-600",
-  };
-  console.log(archetype);
-  
 
   const roleColor = roleColors[archetype.role.name] || "border-primary";
-  const roleBgColor =
-    roleBgColors[archetype.role.name] || "bg-primary/10 text-primary";
 
   const coveragePercentage = Math.round(coverage * 100);
 
@@ -50,13 +42,23 @@ export default function ProfileView({
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <Badge variant="outline" className={`mb-4 ${roleBgColor}`}>
+          <Badge
+            variant="outline"
+            className={"mb-4"}
+            style={
+              ROLE_STYLES[archetype.role.id]
+                ? {
+                    borderColor: `hsl(var(${ROLE_STYLES[archetype.role.id].colorVar}))`,
+                  }
+                : undefined
+            }
+          >
             {archetype.role.name}
           </Badge>
           <h1 className="text-5xl font-semibold mb-4 text-balance">
             {archetype.name}
           </h1>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-foreground/80 text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto">
             Your decisions reveal a distinct approach to challenges in a startup
             environment.
           </p>
@@ -96,6 +98,44 @@ export default function ProfileView({
             <p className="text-lg leading-relaxed">{archetype.message}</p>
           </div>
         </Card>
+
+        {archetype.strengths && archetype.strengths.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+              <Sparkles className="w-6 h-6 text-green-500" />
+              What You Tend To Do Well
+            </h2>
+            <Card className="p-6">
+              <ul className="space-y-2 text-muted-foreground">
+                {archetype.strengths.map((item, index) => (
+                  <li key={index} className="flex gap-2">
+                    <Check className="w-4 h-4 text-green-500 mt-1 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+        )}
+
+        {archetype.growth_areas && archetype.growth_areas.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+              <TrendingUp className="w-6 h-6 text-amber-500" />
+              Growth Areas To Explore
+            </h2>
+            <Card className="p-6">
+              <ul className="space-y-2 text-muted-foreground">
+                {archetype.growth_areas.map((item, index) => (
+                  <li key={index} className="flex gap-2">
+                    <Sparkles className="w-4 h-4 text-amber-500 mt-1 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+        )}
 
         <div className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">

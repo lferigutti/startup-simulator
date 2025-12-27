@@ -1,0 +1,220 @@
+[
+  {
+    "id": "pm_scenario_1",
+    "role": "product_manager",
+    "title": "Roadmap vs Sales Escalation",
+    "description": "Sales wants a feature for a big prospect that doesn't fit the current roadmap. Engineering is already at capacity and your existing users are asking for other improvements.",
+    "order": 1,
+    "choices": [
+      {
+        "id": "pm_1_choice_1",
+        "text": "Say no to sales for now, backing it up with data from current users and the agreed roadmap priorities.",
+        "traits": [
+          "long_term",
+          "data_driven",
+          "confrontational",
+          "quality_focused"
+        ]
+      },
+      {
+        "id": "pm_1_choice_2",
+        "text": "Agree to build the sales feature next, reshuffling the roadmap to try to close the deal quickly.",
+        "traits": ["short_term", "speed_focused", "collaborative", "risk_taker"]
+      },
+      {
+        "id": "pm_1_choice_3",
+        "text": "Offer a compromise: a lighter version of the feature or a workaround, and revisit a full solution if the deal closes.",
+        "traits": [
+          "diplomatic",
+          "collaborative",
+          "risk_averse",
+          "quality_focused"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pm_scenario_2",
+    "role": "product_manager",
+    "title": "User Research vs Shipping",
+    "description": "You have a strong feature idea but very limited user research. Engineering has a gap next sprint and could build it quickly, but design wants more discovery.",
+    "order": 2,
+    "choices": [
+      {
+        "id": "pm_2_choice_1",
+        "text": "Pause and run proper discovery with several users, even if it means missing the next sprint window.",
+        "traits": ["long_term", "quality_focused", "risk_averse", "data_driven"]
+      },
+      {
+        "id": "pm_2_choice_2",
+        "text": "Greenlight a minimal version now and plan to learn from real usage data.",
+        "traits": ["short_term", "speed_focused", "risk_taker", "hands_on"]
+      },
+      {
+        "id": "pm_2_choice_3",
+        "text": "Split the sprint: some engineers build a spike/prototype while you and design do scrappy parallel research.",
+        "traits": [
+          "collaborative",
+          "diplomatic",
+          "data_driven",
+          "quality_focused"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pm_scenario_3",
+    "role": "product_manager",
+    "title": "Tech Debt Pushback",
+    "description": "Engineering insists that a release should be mostly tech-debt work. Stakeholders see no visible value in this and are pressuring you for shiny features.",
+    "order": 3,
+    "choices": [
+      {
+        "id": "pm_3_choice_1",
+        "text": "Back engineering fully and commit the sprint to tech debt, translating the benefits into language stakeholders understand.",
+        "traits": [
+          "long_term",
+          "collaborative",
+          "quality_focused",
+          "diplomatic"
+        ]
+      },
+      {
+        "id": "pm_3_choice_2",
+        "text": "Compromise by carving out a small portion of the sprint for tech debt and the rest for stakeholder-visible features.",
+        "traits": [
+          "short_term",
+          "collaborative",
+          "risk_averse",
+          "speed_focused"
+        ]
+      },
+      {
+        "id": "pm_3_choice_3",
+        "text": "Ask engineering to squeeze tech debt into the background while focusing the sprint on visible wins.",
+        "traits": [
+          "short_term",
+          "confrontational",
+          "speed_focused",
+          "risk_taker"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pm_scenario_4",
+    "role": "product_manager",
+    "title": "Conflicting Feedback: Power Users vs New Users",
+    "description": "Power users want advanced controls that would complicate the UI, while new users are struggling with the basics.",
+    "order": 4,
+    "choices": [
+      {
+        "id": "pm_4_choice_1",
+        "text": "Prioritize simplifying the core flows for new users, postponing advanced features.",
+        "traits": ["long_term", "quality_focused", "risk_averse", "data_driven"]
+      },
+      {
+        "id": "pm_4_choice_2",
+        "text": "Ship advanced options quickly for power users and accept extra complexity as the cost of retention.",
+        "traits": ["short_term", "speed_focused", "risk_taker", "independent"]
+      },
+      {
+        "id": "pm_4_choice_3",
+        "text": "Design a progressive setup: keep the default simple but add discoverable advanced controls for those who need them.",
+        "traits": [
+          "collaborative",
+          "quality_focused",
+          "diplomatic",
+          "long_term"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pm_scenario_5",
+    "role": "product_manager",
+    "title": "Experiment That Failed",
+    "description": "You pushed for an experiment that didn’t move the metrics. Leadership is asking whether it was a waste of time.",
+    "order": 5,
+    "choices": [
+      {
+        "id": "pm_5_choice_1",
+        "text": "Frame it as a clear learning, using the data to explain what you now know and how it changes the roadmap.",
+        "traits": ["data_driven", "diplomatic", "long_term", "risk_taker"]
+      },
+      {
+        "id": "pm_5_choice_2",
+        "text": "Quietly move on and avoid drawing attention to the failed experiment.",
+        "traits": [
+          "short_term",
+          "risk_averse",
+          "independent",
+          "intuition_driven"
+        ]
+      },
+      {
+        "id": "pm_5_choice_3",
+        "text": "Push for more iterations on the same idea, arguing that it wasn’t given a fair chance.",
+        "traits": [
+          "confrontational",
+          "intuition_driven",
+          "risk_taker",
+          "long_term"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pm_scenario_6",
+    "role": "product_manager",
+    "title": "Saying No to the Founder",
+    "description": "The founder suggests a pet feature based on a single conversation. You know it doesn’t fit the strategy or current data.",
+    "order": 6,
+    "choices": [
+      {
+        "id": "pm_6_choice_1",
+        "text": "Push back directly with data and explain why it doesn’t fit the current priorities.",
+        "traits": ["confrontational", "data_driven", "long_term", "independent"]
+      },
+      {
+        "id": "pm_6_choice_2",
+        "text": "Agree to fit a small version into the roadmap soon to keep alignment high.",
+        "traits": ["collaborative", "diplomatic", "short_term", "speed_focused"]
+      },
+      {
+        "id": "pm_6_choice_3",
+        "text": "Offer to test the idea quickly with a lightweight prototype or user interviews before committing engineering time.",
+        "traits": [
+          "data_driven",
+          "risk_averse",
+          "collaborative",
+          "quality_focused"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pm_scenario_7",
+    "role": "product_manager",
+    "title": "Ownership vs Delegation",
+    "description": "You’re stretched thin across multiple squads. One team keeps asking you to join every meeting and make every decision.",
+    "order": 7,
+    "choices": [
+      {
+        "id": "pm_7_choice_1",
+        "text": "Stay deeply involved with that team and accept that other areas will move slower.",
+        "traits": ["hands_on", "independent", "short_term", "quality_focused"]
+      },
+      {
+        "id": "pm_7_choice_2",
+        "text": "Empower a lead within the team to own more decisions and step back from most meetings.",
+        "traits": ["delegator", "collaborative", "long_term", "risk_taker"]
+      },
+      {
+        "id": "pm_7_choice_3",
+        "text": "Create clearer decision frameworks and rituals so teams can move with less of your direct involvement.",
+        "traits": ["long_term", "data_driven", "delegator", "risk_averse"]
+      }
+    ]
+  }
+]

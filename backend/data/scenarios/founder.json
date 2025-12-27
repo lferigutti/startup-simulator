@@ -1,0 +1,211 @@
+[
+  {
+    "id": "founder_scenario_1",
+    "role": "founder",
+    "title": "Co-founder Misalignment on Pivot",
+    "description": "After a bad month of metrics, your co-founder wants to pivot the company to a completely different problem. You still believe in the original vision and see encouraging signals in a few segments.",
+    "order": 1,
+    "choices": [
+      {
+        "id": "founder_1_choice_1",
+        "text": "Insist on staying with the original vision, using data and a clear narrative to commit to 6 more months before revisiting a pivot.",
+        "traits": ["long_term", "data_driven", "confrontational", "independent"]
+      },
+      {
+        "id": "founder_1_choice_2",
+        "text": "Agree to run a 4-week pivot experiment while keeping most of the current roadmap, and then decide together based on the results.",
+        "traits": ["long_term", "collaborative", "diplomatic", "risk_taker"]
+      },
+      {
+        "id": "founder_1_choice_3",
+        "text": "Fully commit to the new direction now; speed and alignment with your co-founder matter more than your conviction about the old vision.",
+        "traits": [
+          "short_term",
+          "speed_focused",
+          "intuition_driven",
+          "risk_taker"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "founder_scenario_2",
+    "role": "founder",
+    "title": "First Key Hire: Generalist vs Specialist",
+    "description": "You finally have budget for one full-time hire. You can either bring in a senior specialist (e.g. staff-level engineer) or a scrappy generalist who can do a bit of everything.",
+    "order": 2,
+    "choices": [
+      {
+        "id": "founder_2_choice_1",
+        "text": "Hire the senior specialist to build a rock-solid product foundation, even if it means you still cover many other roles yourself.",
+        "traits": ["long_term", "quality_focused", "risk_averse", "independent"]
+      },
+      {
+        "id": "founder_2_choice_2",
+        "text": "Hire the generalist who can handle product, ops, and some sales, even if they aren't world-class at any one thing.",
+        "traits": ["short_term", "speed_focused", "collaborative", "risk_taker"]
+      },
+      {
+        "id": "founder_2_choice_3",
+        "text": "Delay hiring and keep doing everything yourself a bit longer to preserve runway and optionality.",
+        "traits": ["hands_on", "independent", "risk_averse", "short_term"]
+      }
+    ]
+  },
+  {
+    "id": "founder_scenario_3",
+    "role": "founder",
+    "title": "Investor Pressure on AI Feature",
+    "description": "A key investor is pushing hard for an AI feature that fits their thesis but doesn't match what your users are currently asking for.",
+    "order": 3,
+    "choices": [
+      {
+        "id": "founder_3_choice_1",
+        "text": "Politely but firmly say no, sharing user data and explaining why the feature doesn't fit your current strategy.",
+        "traits": ["long_term", "data_driven", "diplomatic", "risk_averse"]
+      },
+      {
+        "id": "founder_3_choice_2",
+        "text": "Fully commit to building the investor's AI feature next to keep the relationship strong and potentially unlock more capital.",
+        "traits": ["short_term", "speed_focused", "collaborative", "risk_taker"]
+      },
+      {
+        "id": "founder_3_choice_3",
+        "text": "Propose a limited experiment: a small version of the AI feature shipped to a subset of users, then decide based on the results.",
+        "traits": ["long_term", "data_driven", "collaborative", "risk_averse"]
+      }
+    ]
+  },
+  {
+    "id": "founder_scenario_4",
+    "role": "founder",
+    "title": "Pricing Crisis with First Big Customer",
+    "description": "Your first big potential customer loves the product but says your price is 3x too high. They ask for a huge discount in exchange for being a reference.",
+    "order": 4,
+    "choices": [
+      {
+        "id": "founder_4_choice_1",
+        "text": "Hold the line on pricing, offering only a small discount in exchange for multi-year commitment and clear reference rights.",
+        "traits": [
+          "long_term",
+          "quality_focused",
+          "confrontational",
+          "risk_taker"
+        ]
+      },
+      {
+        "id": "founder_4_choice_2",
+        "text": "Give a deep discount to land the logo quickly, treating it as a marketing expense to fuel future sales.",
+        "traits": [
+          "short_term",
+          "speed_focused",
+          "collaborative",
+          "risk_averse"
+        ]
+      },
+      {
+        "id": "founder_4_choice_3",
+        "text": "Use the conversation as a signal to revisit your entire pricing model and positioning before deciding.",
+        "traits": ["long_term", "data_driven", "diplomatic", "quality_focused"]
+      }
+    ]
+  },
+  {
+    "id": "founder_scenario_5",
+    "role": "founder",
+    "title": "Underperforming Early Hire",
+    "description": "An early employee is loyal and great for culture but clearly not keeping up with the role as the company grows. The rest of the team is starting to notice.",
+    "order": 5,
+    "choices": [
+      {
+        "id": "founder_5_choice_1",
+        "text": "Try to move them into a different role that better fits their strengths, even if it takes extra time and effort.",
+        "traits": ["collaborative", "diplomatic", "risk_averse", "long_term"]
+      },
+      {
+        "id": "founder_5_choice_2",
+        "text": "Set a clear, time-boxed performance improvement plan with specific targets and consequences.",
+        "traits": [
+          "long_term",
+          "quality_focused",
+          "confrontational",
+          "risk_averse"
+        ]
+      },
+      {
+        "id": "founder_5_choice_3",
+        "text": "Let them go quickly and hire someone more senior, prioritizing team performance and speed.",
+        "traits": [
+          "speed_focused",
+          "confrontational",
+          "risk_taker",
+          "independent"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "founder_scenario_6",
+    "role": "founder",
+    "title": "Burnout vs Momentum",
+    "description": "You've been working 80-hour weeks and the product finally has traction, but you're exhausted. The team is mirroring your pace.",
+    "order": 6,
+    "choices": [
+      {
+        "id": "founder_6_choice_1",
+        "text": "Keep pushing at the same pace for a few more months to maximize momentum while it's hot.",
+        "traits": [
+          "hands_on",
+          "speed_focused",
+          "risk_taker",
+          "independent",
+          "short_term"
+        ]
+      },
+      {
+        "id": "founder_6_choice_2",
+        "text": "Explicitly reset expectations with the team, reduce your hours, and encourage a more sustainable rhythm.",
+        "traits": ["long_term", "diplomatic", "risk_averse", "collaborative"]
+      },
+      {
+        "id": "founder_6_choice_3",
+        "text": "Bring in help (e.g. an operations lead or coach) to offload you and keep execution strong.",
+        "traits": ["long_term", "collaborative", "delegator", "data_driven"]
+      }
+    ]
+  },
+  {
+    "id": "founder_scenario_7",
+    "role": "founder",
+    "title": "Runway Transparency with the Team",
+    "description": "Finances are tight and you may need to cut salaries or do layoffs in a few months if things don't improve.",
+    "order": 7,
+    "choices": [
+      {
+        "id": "founder_7_choice_1",
+        "text": "Share detailed runway numbers with the whole team and brainstorm options together, even if it creates anxiety.",
+        "traits": [
+          "long_term",
+          "confrontational",
+          "collaborative",
+          "risk_taker"
+        ]
+      },
+      {
+        "id": "founder_7_choice_2",
+        "text": "Share only high-level risk and ask everyone to focus on execution while you handle the details.",
+        "traits": ["diplomatic", "risk_averse", "collaborative", "short_term"]
+      },
+      {
+        "id": "founder_7_choice_3",
+        "text": "Keep the situation to yourself until you have a concrete plan or decision, to avoid distracting the team.",
+        "traits": [
+          "independent",
+          "risk_averse",
+          "short_term",
+          "intuition_driven"
+        ]
+      }
+    ]
+  }
+]

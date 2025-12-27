@@ -23,8 +23,6 @@ def create_session_endpoint(
 
     if role not in Role:
         raise HTTPException(status_code=400, detail="Invalid role specified")
-    elif role == Role.PRODUCT_MANAGER or role == Role.FOUNDER:
-        raise HTTPException(status_code=400, detail=f"Role {role.value} is not yet supported")
     return session_manager.create_session(db, role)
 
 

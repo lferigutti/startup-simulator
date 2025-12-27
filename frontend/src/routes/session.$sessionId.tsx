@@ -13,7 +13,6 @@ export const Route = createFileRoute("/session/$sessionId")({
   loader: async ({ params }) => {
     console.log("Loading session:", params.sessionId);
     const sessionData = await request<Session>(`sessions/${params.sessionId}`);
-    console.log("Session data loaded:", sessionData);
 
     if (!sessionData) {
       throw new Error("Session data not found");
@@ -88,7 +87,7 @@ function ScenarioRouteComponent() {
 
   return (
     <ScenarioView
-      roleName={sessionData.role.name}
+      role={sessionData.role}
       scenario={sessionData.current_scenario}
       handleNextScenario={handleNextScenario}
       scenariosCompleted={sessionData.scenarios_completed}
