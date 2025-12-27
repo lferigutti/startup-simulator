@@ -6,7 +6,7 @@ const MainHeader = ({ isDark, setIsDark }: { isDark: boolean; setIsDark: React.D
   <header className="border-b border-border/60 bg-background/80 backdrop-blur-sm">
     <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
       <span className="text-sm font-medium tracking-tight text-foreground/80">
-        Leonardo Ferigutti
+        <a href="https://ferigutti.com" target="_blank" rel="noopener noreferrer">Leonardo Ferigutti</a>
       </span>
       <div className="flex items-center gap-4">
         <button

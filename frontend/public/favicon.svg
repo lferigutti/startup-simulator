@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="compassGrad" x1="14" y1="10" x2="50" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06b6d4" />
+      <stop offset="1" stop-color="#6366f1" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#f8fafc" />
+  <rect x="8" y="8" width="48" height="48" rx="12" fill="#e2e8f0" />
+  <circle cx="32" cy="32" r="18" stroke="#0f172a" stroke-width="4" fill="#111827" />
+  <circle cx="32" cy="32" r="14" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="4 4" opacity="0.75" />
+  <path d="M22 42 30 30l12-8-8 12z" fill="url(#compassGrad)" stroke="#e0e7ff" stroke-width="2" stroke-linejoin="round" />
+  <circle cx="32" cy="32" r="3" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="1.5" />
+  <path d="M32 14v4m0 28v4m18-18h-4M14 32h-4" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+</svg>
