@@ -34,7 +34,7 @@ class Settings(BaseSettings):
   ENABLE_DOCS: bool = True
   ENABLE_OPENAPI: bool = True
   ENABLE_CORS: bool = True
-  CORS_ORIGINS: list[str] = ["http://localhost:5173"]
+  CORS_ORIGINS: list[str] = ["*"]
   FRONTEND_HOST: str = "http://localhost:5173"
   ENVIRONMENT: Literal["local", "staging", "production"] = "local"
 

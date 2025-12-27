@@ -1,0 +1,24 @@
+# Frontend build and deps
+frontend/node_modules
+frontend/dist
+
+# Python venv and caches
+backend/.venv
+**/__pycache__
+**/.pytest_cache
+
+# Env files and logs
+.env
+backend/.env
+frontend/.env
+*.log
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+backend/data/*.db
+backend/data/*.sqlite*
+
+# Misc
+.DS_Store

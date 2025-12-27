@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Adjust if you want to change behavior based on env
+      - ENVIRONMENT=local
+    restart: unless-stopped
