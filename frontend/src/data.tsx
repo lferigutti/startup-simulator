@@ -1,4 +1,4 @@
-import { Code2, Compass, Rocket } from "lucide-react";
+import { Code2, Rocket,Target } from "lucide-react";
 const ROLE_STYLES: Record<
   string,
   {
@@ -12,7 +12,7 @@ const ROLE_STYLES: Record<
   },  
   product_manager: {
     colorVar: "--product",
-    icon: <Compass className="w-8 h-8" />,
+    icon: <Target className="w-8 h-8" />,
   },
   founder: {
     colorVar: "--founder",

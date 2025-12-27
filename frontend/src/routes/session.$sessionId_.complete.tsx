@@ -95,10 +95,7 @@ function ProfileViewRouteComponent() {
     );
   }
 
-  const handleStartReflection = () => {
-    // TODO: Navigate to reflection phase
-    console.log("Start reflection");
-  };
+
 
   const handleRestart = () => {
     navigate({ to: "/" });
@@ -107,7 +104,6 @@ function ProfileViewRouteComponent() {
   return (
     <ProfileView
       profile={profile}
-      onStartReflection={handleStartReflection}
       onRestart={handleRestart}
     />
   );

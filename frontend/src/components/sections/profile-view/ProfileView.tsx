@@ -6,18 +6,20 @@ import { Badge } from "@/components/ui/badge";
 import { Check, X, Sparkles, Target, TrendingUp } from "lucide-react";
 import type { ArchetypeMatch } from "@/models";
 import ROLE_STYLES from "@/data.tsx";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
 
-interface ProfileViewProps {
-  profile: ArchetypeMatch;
-  onStartReflection: () => void;
-  onRestart: () => void;
-}
 
 export default function ProfileView({
   profile,
-  onStartReflection,
   onRestart,
-}: ProfileViewProps) {
+}: {
+  profile: ArchetypeMatch;
+  onRestart: () => void;
+}) {
   const { archetype, matched_traits, missing_traits, coverage } = profile;
 
   const roleColors: Record<string, string> = {
@@ -25,7 +27,6 @@ export default function ProfileView({
     product_manager: "border-purple-500",
     founder: "border-amber-500",
   };
-
 
   const roleColor = roleColors[archetype.role.name] || "border-primary";
 
@@ -128,7 +129,7 @@ export default function ProfileView({
               <ul className="space-y-2 text-muted-foreground">
                 {archetype.growth_areas.map((item, index) => (
                   <li key={index} className="flex gap-2">
-                    <Sparkles className="w-4 h-4 text-amber-500 mt-1 shrink-0" />
+                    <TrendingUp className="w-4 h-4 text-amber-500 mt-1 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -211,9 +212,21 @@ export default function ProfileView({
         </div>
 
         <div className="flex gap-4">
-          <Button onClick={onStartReflection} size="lg" className="flex-1">
-            Start Reflection Conversation
-          </Button>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+                size="lg"
+                className="flex-1 cursor-not-allowed opacity-60"
+                aria-disabled="true"
+              >
+               <Sparkles className="w-6 h-6 text-purple-500" /> Start Reflection Conversation
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>This feature is coming soon!</TooltipContent>
+          </Tooltip>
           <Button onClick={onRestart} variant="outline" size="lg">
             Start Over
           </Button>

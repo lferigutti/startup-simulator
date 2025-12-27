@@ -35,21 +35,14 @@ const RoleSelection = ({
             <Card
               key={role.id}
               className="p-8 hover:shadow-lg transition-all duration-300 border-2 hover:scale-[1.02]"
-              style={
-                ROLE_STYLES[role.id]
-                  ? {
-                      borderColor: `hsl(var(${ROLE_STYLES[role.id].colorVar}))`,
-                    }
-                  : undefined
-              }
             >
               <div
                 className="w-16 h-16 rounded-xl flex items-center justify-center mb-6"
                 style={
                   ROLE_STYLES[role.id]
                     ? {
-                        backgroundColor: `hsl(var(${ROLE_STYLES[role.id].colorVar}) / 0.12)`,
-                        color: `hsl(var(${ROLE_STYLES[role.id].colorVar}))`,
+                        backgroundColor: `hsl(var(${ROLE_STYLES[role.id].colorVar}) / 0.20)`,
+                        //color: `hsl(var(${ROLE_STYLES[role.id].colorVar}))`,
                       }
                     : undefined
                 }
