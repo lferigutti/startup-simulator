@@ -110,6 +110,7 @@
     "role": "engineer",
     "title": "Surprise! You're in Sales Now",
     "description": "The founder pings: 'Can you jump on 3 customer calls today? We need someone technical.' Your calendar was supposed to be focus time.",
+    "order": 5,
     "choices": [
       {
         "id": "engineer_5_choice_1",
