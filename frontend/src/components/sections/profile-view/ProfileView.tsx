@@ -3,7 +3,7 @@ import { capitalize } from "lodash";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, X, Sparkles, Target, TrendingUp } from "lucide-react";
+import { Check, X, Sparkles, TrendingUp } from "lucide-react";
 import type { ArchetypeMatch } from "@/models";
 import ROLE_STYLES from "@/data.tsx";
 import {
@@ -12,7 +12,6 @@ import {
   TooltipContent,
 } from "@/components/ui/tooltip";
 
-
 export default function ProfileView({
   profile,
   onRestart,
@@ -20,7 +19,7 @@ export default function ProfileView({
   profile: ArchetypeMatch;
   onRestart: () => void;
 }) {
-  const { archetype, matched_traits, missing_traits, coverage } = profile;
+  const { archetype, matched_traits, missing_traits } = profile;
 
   const roleColors: Record<string, string> = {
     engineer: "border-blue-500",
@@ -30,7 +29,6 @@ export default function ProfileView({
 
   const roleColor = roleColors[archetype.role.name] || "border-primary";
 
-  const coveragePercentage = Math.round(coverage * 100);
 
   const formatTrait = (trait: string) => {
     return trait
@@ -65,40 +63,17 @@ export default function ProfileView({
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 mb-8">
-          <Card className="p-6 text-center">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Target className="w-5 h-5 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Match Score</span>
+        <div className="mb-8">
+          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+            <Sparkles className="w-6 h-6 text-primary" />
+            Your Profile Insight
+          </h2>
+          <Card className={`p-8 border-l-4 ${roleColor}`}>
+            <div className="flex gap-3 items-start">
+              <p className="text-lg leading-relaxed">{archetype.message}</p>
             </div>
-            <p className="text-4xl font-bold">
-              {matched_traits.length}
-              <span className="text-lg text-muted-foreground font-normal">
-                /{archetype.key_traits.length}
-              </span>
-            </p>
-            <p className="text-xs text-muted-foreground mt-1">traits matched</p>
-          </Card>
-          <Card className="p-6 text-center">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <TrendingUp className="w-5 h-5 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">
-                Trait Coverage
-              </span>
-            </div>
-            <p className="text-4xl font-bold">{coveragePercentage}%</p>
-            <p className="text-xs text-muted-foreground mt-1">
-              of archetype traits
-            </p>
           </Card>
         </div>
-
-        <Card className={`p-8 mb-8 border-l-4 ${roleColor}`}>
-          <div className="flex gap-3 items-start">
-            <Sparkles className="w-6 h-6 text-primary shrink-0 mt-1" />
-            <p className="text-lg leading-relaxed">{archetype.message}</p>
-          </div>
-        </Card>
 
         {archetype.strengths && archetype.strengths.length > 0 && (
           <div className="mb-8">
@@ -141,7 +116,7 @@ export default function ProfileView({
         <div className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
             <Check className="w-6 h-6 text-green-500" />
-            Traits You Demonstrated
+            Qualities You Demonstrated
           </h2>
           <Card className="p-6">
             <div className="flex flex-wrap gap-2">
@@ -162,7 +137,7 @@ export default function ProfileView({
           <div className="mb-8">
             <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <X className="w-6 h-6 text-muted-foreground" />
-              Traits to Explore
+              Qualities to Explore
             </h2>
             <Card className="p-6">
               <p className="text-muted-foreground mb-4">
@@ -186,7 +161,7 @@ export default function ProfileView({
 
         <div className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">
-            Key Traits of {archetype.name}
+            Key Qualities of {archetype.name}
           </h2>
           <Card className="p-6">
             <div className="flex flex-wrap gap-2">
@@ -222,7 +197,8 @@ export default function ProfileView({
                 className="flex-1 cursor-not-allowed opacity-60"
                 aria-disabled="true"
               >
-               <Sparkles className="w-6 h-6 text-purple-500" /> Start Reflection Conversation
+                <Sparkles className="w-6 h-6 text-purple-500" /> Start
+                Reflection Conversation
               </Button>
             </TooltipTrigger>
             <TooltipContent>This feature is coming soon!</TooltipContent>

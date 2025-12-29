@@ -2,23 +2,23 @@
   {
     "id": "engineer_scenario_1",
     "role": "engineer",
-    "title": "Technical Debt vs Feature Request",
-    "description": "The PM has prioritized a new feature that users are requesting. However, you've identified critical technical debt that's causing 20% of user bugs. The refactor would take 2 weeks, same as the feature. The PM is pushing for the feature to ship this sprint.",
+    "title": "Shiny Feature vs Refactor",
+    "description": "The PM wants a shiny new feature in this sprint. You see a refactor that would remove ~20% of user bugs, but it would take the same two weeks as the feature.",
     "order": 1,
     "choices": [
       {
         "id": "engineer_1_choice_1",
-        "text": "Advocate strongly for doing the refactor first, using data on bugs and velocity to explain the long-term impact of technical debt.",
+        "text": "Push to do the refactor first, using bug data and long-term impact to argue for it.",
         "traits": ["long_term", "quality_focused", "data_driven"]
       },
       {
         "id": "engineer_1_choice_2",
-        "text": "Ship the feature now but clearly document the technical debt as a blocker for the next sprint.",
+        "text": "Ship the feature now, but clearly log the refactor as a must-do item for the next sprint.",
         "traits": ["short_term", "collaborative", "risk_averse"]
       },
       {
         "id": "engineer_1_choice_3",
-        "text": "Work extra hours to try to do both this sprint, taking on the extra load yourself.",
+        "text": "Try to do both this sprint by working extra hours and taking the load yourself.",
         "traits": ["hands_on", "independent", "speed_focused"]
       }
     ]
@@ -26,23 +26,23 @@
   {
     "id": "engineer_scenario_2",
     "role": "engineer",
-    "title": "Scope Creep Mid-Sprint",
-    "description": "You're midway through a sprint when the founder asks you to add 'one small feature' to the current release. It's not small—it would require rearchitecting part of your solution. The team is already stretched.",
+    "title": "One Small Feature?",
+    "description": "Mid-sprint, the founder asks for 'one small feature' in the current release. It's actually big and would require rethinking part of your solution, and the team is already stretched.",
     "order": 2,
     "choices": [
       {
         "id": "engineer_2_choice_1",
-        "text": "Push back firmly and explain the engineering implications",
+        "text": "Push back firmly and spell out the engineering impact and risks.",
         "traits": ["long_term", "independent", "risk_averse"]
       },
       {
         "id": "engineer_2_choice_2",
-        "text": "Accept the request but cut corners to make it work",
+        "text": "Say yes and cut corners so it fits, even if the code quality suffers.",
         "traits": ["short_term", "collaborative", "speed_focused"]
       },
       {
         "id": "engineer_2_choice_3",
-        "text": "Propose a minimal version that fits within the current architecture and has a clear upgrade path later.",
+        "text": "Suggest a minimal version that fits the current architecture and has a clear upgrade path later.",
         "traits": [
           "long_term",
           "collaborative",
@@ -55,18 +55,18 @@
   {
     "id": "engineer_scenario_3",
     "role": "engineer",
-    "title": "Junior Engineer Struggling",
-    "description": "A junior engineer is blocked on a critical task and deadlines are tight.",
+    "title": "Junior on the Critical Path",
+    "description": "A junior engineer is stuck on a legacy database migration. The deadline is close and this work is on the critical path.",
     "order": 3,
     "choices": [
       {
         "id": "engineer_3_choice_1",
-        "text": "Reassign the task to yourself to ensure it's done on time.",
+        "text": "Take the task over yourself to make sure it ships on time.",
         "traits": ["speed_focused", "independent", "short_term", "hands_on"]
       },
       {
         "id": "engineer_3_choice_2",
-        "text": "Pair program with them to help unblock and teach.",
+        "text": "Pair with them, unblock the work, and use it as coaching time.",
         "traits": [
           "collaborative",
           "long_term",
@@ -76,7 +76,7 @@
       },
       {
         "id": "engineer_3_choice_3",
-        "text": "Give them a quick hint and let them figure it out.",
+        "text": "Give them a quick hint and leave them to figure out the rest.",
         "traits": ["independent", "long_term", "risk_averse"]
       }
     ]
@@ -84,8 +84,8 @@
   {
     "id": "engineer_scenario_4",
     "role": "engineer",
-    "title": "Unrealistic Deadline",
-    "description": "The founder promises a client feature in two weeks. You know it needs four. Do you:",
+    "title": "Two-Week Miracle?",
+    "description": "The founder promises a client a feature in two weeks. You know it needs at least two months. Do you:",
     "order": 4,
     "choices": [
       {
@@ -108,23 +108,22 @@
   {
     "id": "engineer_scenario_5",
     "role": "engineer",
-    "title": "Surprise Customer Calls",
-    "description": "The founder messages: 'Can you jump on 3 customer calls today? We need someone technical.' You weren't hired for sales, but the calls are happening soon and the stakes are high.",
-    "order": 5,
+    "title": "Surprise! You're in Sales Now",
+    "description": "The founder pings: 'Can you jump on 3 customer calls today? We need someone technical.' Your calendar was supposed to be focus time.",
     "choices": [
       {
         "id": "engineer_5_choice_1",
-        "text": "Refuse the calls and offer an alternative: write a technical FAQ / escalation guide, and only join if there's a deep technical escalation.",
+        "text": "Say no and offer a better plan: a quick FAQ and only joining real deep-dives.",
         "traits": ["long_term", "risk_averse", "independent", "confrontational"]
       },
       {
         "id": "engineer_5_choice_2",
-        "text": "Accept immediately with no questions and run the calls as requested.",
+        "text": "Say yes instantly and spend the day as surprise sales engineer.",
         "traits": ["short_term", "speed_focused", "collaborative", "hands_on"]
       },
       {
         "id": "engineer_5_choice_3",
-        "text": "Do it, but make it clear it's temporary and propose a proper rotation + escalation path going forward.",
+        "text": "Take the calls, but frame it as a one-off and pitch a proper rotation + escalation path.",
         "traits": [
           "long_term",
           "diplomatic",
@@ -137,23 +136,23 @@
   {
     "id": "engineer_scenario_6",
     "role": "engineer",
-    "title": "Finished Sprint Work Early",
+    "title": "Done Early, Now What?",
     "description": "You finished all your sprint tickets in half the estimated time. There are still several days left in the sprint, and no one has noticed yet.",
     "order": 6,
     "choices": [
       {
         "id": "engineer_6_choice_1",
-        "text": "Tell the team you're free and ask for more work or offer to help someone who's blocked.",
+        "text": "Tell the team you're free and jump in where someone is blocked.",
         "traits": ["collaborative", "hands_on", "long_term", "quality_focused"]
       },
       {
         "id": "engineer_6_choice_2",
-        "text": "Keep quiet and use the time for personal life or low-key learning.",
+        "text": "Keep quiet and treat it as bonus chill / learning time.",
         "traits": ["short_term", "independent", "risk_averse"]
       },
       {
         "id": "engineer_6_choice_3",
-        "text": "Use the time to find something meaningful to improve (tests, CI, monitoring), bring data, and propose it ASAP.",
+        "text": "Secretly improve something important (tests, CI, monitoring), gather data, then pitch it as a win.",
         "traits": ["data_driven", "long_term", "quality_focused", "hands_on"]
       }
     ]
@@ -161,7 +160,7 @@
   {
     "id": "engineer_scenario_7",
     "role": "engineer",
-    "title": "Hard Feature, Deadline Slipping",
+    "title": "This Feature Is Fighting Back",
     "description": "You're stuck on a hard part of a feature and you're pretty sure you won't meet the deadline unless something changes.",
     "order": 7,
     "choices": [
