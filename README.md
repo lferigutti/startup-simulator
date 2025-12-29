@@ -1,7 +1,7 @@
 # Startup Simulator
 
 Interactive role-based startup simulator that lets you “play” through realistic scenarios as a Founder, Product Manager, or Engineer. Your choices shape a trait profile and archetype that reflect how you tend to operate in a startup.
-Test it [here](https://startup-simulator.htz.ferigutti.com/).
+You can test it [here](https://startup-simulator.htz.ferigutti.com/).
 
 ## Features
 
