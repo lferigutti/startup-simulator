@@ -36,11 +36,11 @@ const ScenarioView = ({
   };
 
   return (
-    <div className="min-h-screen py-12 px-4">
+    <div className="py-8 px-4">
       {scenario && (
         <div className="max-w-3xl mx-auto">
           {/* Header */}
-          <div className="mb-12">
+          <div className="mb-8">
             <a href="/" className="mb-6 inline-block text-sm text-primary">
               <ArrowLeft className="inline-block mr-2" /> Back to Home
             </a>
@@ -67,7 +67,7 @@ const ScenarioView = ({
           </div>
 
           {/* Scenario Content */}
-          <div className="mb-12">
+          <div className="mb-6">
             <h1 className="text-4xl font-semibold mb-6 text-balance">
               {scenario.title}
             </h1>

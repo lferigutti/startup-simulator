@@ -12,7 +12,7 @@ const RoleSelection = ({
   onRoleSelect: (role: RoleId) => void;
 }) => {
   return (
-    <div className="flex min-h-screen items-center justify-center px-4 py-16">
+    <div className="flex items-center justify-center px-4 py-16">
       <div className="w-full max-w-6xl">
         <div className="text-center mb-16">
           <div className="mb-6 flex justify-center">

@@ -38,7 +38,7 @@ export default function ProfileView({
   };
 
   return (
-    <div className="min-h-screen py-12 px-4">
+    <div className="py-8 px-4">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <Badge

@@ -4,6 +4,7 @@ import ErrorPage from "@/components/sections/error-pages/ErrorPage";
 import NotFoundPage from "@/components/sections/error-pages/NotFoundPage";
 import MainHeader from "@/components/layout/MainHeader";
 import { useEffect, useState } from "react";
+import Footer from "@/components/layout/Footer";
 
 const RootLayout = () => {
   const [isDark, setIsDark] = useState(false);
@@ -23,6 +24,7 @@ const RootLayout = () => {
       <main className="flex-1">
         <Outlet />
       </main>
+      <Footer />
       <TanStackRouterDevtools />
     </div>
   );

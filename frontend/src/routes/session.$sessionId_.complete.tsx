@@ -55,7 +55,7 @@ export const Route = createFileRoute("/session/$sessionId_/complete")({
   },
   component: ProfileViewRouteComponent,
   errorComponent: () => (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="flex-1 flex items-center justify-center">
       <div className="text-center">
         <p className="text-lg text-destructive">
           There was an error loading your profile.
@@ -67,7 +67,7 @@ export const Route = createFileRoute("/session/$sessionId_/complete")({
     </div>
   ),
   pendingComponent: () => (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="flex-1 flex items-center justify-center">
       <div className="text-center">
         <Loader2 className="w-12 h-12 animate-spin mx-auto mb-4 text-muted-foreground" />
         <p className="text-lg text-muted-foreground">Loading your profile...</p>
@@ -82,7 +82,7 @@ function ProfileViewRouteComponent() {
 
   if (!profile) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="flex-1 flex items-center justify-center">
         <div className="text-center">
           <p className="text-lg text-destructive">
             Profile data is missing.
