@@ -1,6 +1,9 @@
 import { FaEnvelope, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
+
+  const year = new Date().getFullYear();
+
   return (
     <footer className="py-12 mt-auto">
       <div className="max-w-5xl mx-auto px-8">
@@ -36,7 +39,7 @@ export default function Footer() {
           
           {/* Copyright */}
           <p className="text-xs text-zinc-600">
-            © 2025 Leonardo Ferigutti
+            © {year} Leonardo Ferigutti
           </p>
         </div>
       </div>
